@@ -1,0 +1,18 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+	<input name="result" type="text">
+	<input type="button" value="取得" onclick="showElements();">
+	<script>
+		function showElements() {
+			var elements = document.getElementsByName('result');
+			console.log(elements[0].value);
+		}
+
+	</script>
+</body>
+</html>	

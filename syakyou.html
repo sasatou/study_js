@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>写経様</title>
+</head>
+<body>
+  <script>
+  var scores = [100, 90, 80, 70, 60]; //スコアの配列
+  var sum = 0; // 合計値を格納する変数をゼロで初期化
+
+  for (var i = 0; i < scores.length; i++){ // scores.lengthは5になっているのでカンマで区切った部分で１と数えてるみたい。
+  	sum += scores[i]; //左辺に右辺を足すと合計値が出る
+  }
+  var average = sum / scores.length; //合計値をスコアの数5で割ると平均値が算出される。
+
+  console.log('合計値：' + sum);
+  console.log('平均値：' + average);
+  console.log(scores.length);
+  </script>
+
+</body>
+</html>

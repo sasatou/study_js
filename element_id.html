@@ -1,0 +1,19 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+	<p id="result">pタグの文字列です</p>
+	<input type="button" value="取得" onclick="show();">
+	<script>
+		function show() {
+			var result = document.getElementById('result');
+			// console.log(result.innerText); // dom内の文字を取得
+			var nowDate = new Date();　// 時刻を取得
+			result.innerText = nowDate.toLocaleString();　//文字列を時刻に置き換え			
+		}
+	</script>
+</body>
+</html>	

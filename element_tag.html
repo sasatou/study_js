@@ -1,0 +1,23 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+	<div>要素１</div>
+	<p>要素2</p>
+	<div>要素3</div>
+	<span>要素4</span>
+	<div>要素5</div>
+    <input type="button" value="取得" onclick="showElements();"><!-- ボタンがクリックすされたら -->
+	<script>
+		function showElements(){
+			var elements = document.getElementsByTagName('div'); // divタグの情報を取得
+			for (var i = 0; i < elements.length; i++) {// タグの存在する個数分処理を繰り返す
+				console.log(elements[i].innerText); // コンソールに抜き出した内部テキストを個数分取得表示
+			}
+		}
+	</script>
+</body>
+</html>	
