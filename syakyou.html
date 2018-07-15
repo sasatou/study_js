@@ -140,11 +140,20 @@
 
 // 複数の比較を組み合わせる
 // ＆＆(A かつ　B)
-  let text = prompt('年齢は？');
+  // let text = prompt('年齢は？');
+  // let age = parseInt(text);
+  // if (age > 6 && age <15){
+  //   console.log('義務教育の対象');
+  // }
+
+// 幼児と高齢者だけ対象にする
+  let text = prompt('年齢は?');
   let age = parseInt(text);
-  if (age > 6 && age <15){
-    console.log('義務教育の対象');
+  if (age <= 5 || age >= 65){
+    console.log('幼児と高齢者');
   }
+
+
 
 
   </script>
