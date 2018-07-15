@@ -147,11 +147,98 @@
   // }
 
 // 幼児と高齢者だけ対象にする
-  let text = prompt('年齢は?');
-  let age = parseInt(text);
-  if (age <= 5 || age >= 65){
-    console.log('幼児と高齢者');
-  }
+  // let text = prompt('年齢は?');
+  // let age = parseInt(text);
+  // if (age <= 5 || age >= 65){
+  //   console.log('幼児と高齢者');
+  // }
+
+  // // !演算子を使ってfalseの時だけ実行する。
+  //  let text = prompt('年齢は？');
+  //  if (! isNaN(text)){
+  //    console.log('数値に変更可能');
+  //  }
+
+// 年齢層を分析すつプログラムを作ってみる。
+
+// 自分で考えてみて埋めてみたけど積んだ。
+
+// let text = prompt('年齢は？');
+// let age = parseInt(text);
+// if (age > 6 && age > 16) {
+//   console.log('未成年(義務教育)')
+// } else if (age < 20){
+//   console.log('未成年');
+// } else if (age < 65){
+//   console.log('成人');
+// } else{
+//   console.log('高齢者');
+// }
+
+// // まず、一連の流れを書き込む
+// let text = prompt('年齢は？');
+// if (! isNaN(text)){
+//   let age = parsInt(text);
+//   if (age < 20){
+//     console.log('未成年');
+//   } else if(age < 65){
+//     console.log('成人');
+//   } else {
+//     console.log('高齢者');
+//   }
+// }
+
+// // 上のプログラムに義務教育が該当する年齢も判定させる。
+// let text = prompt('年齢は?');
+//   if (! isNaN(text)){
+//     let age = parseInt(text);
+//     if (age < 20){
+//     console.log('未成年');
+//     if (age >= 6 && age <= 15){
+//       console.log('(義務教育)');
+//     }
+//   } else if (age < 65){
+//     console.log('成人です');
+//   } else {
+//     console.log('高齢者です');
+//   }
+// }
+
+// 思い出しながら写経
+//
+// let text = prompt('年齢は？');
+// if (! isNaN(text)){
+//   let age = parseInt(text);
+//   if (age < 20){
+//     console.log('未成年');
+//     if (age >= 6 && age <= 15){
+//       console.log('(義務教育)');
+//     }
+//   } else if (age < 65){
+//     console.log('成人');
+//   } else {
+//     console.log('高齢者');
+//   }
+// }
+
+  // 6歳未満なら幼児と表示せよ
+  //
+  // let text = prompt('年齢は？');
+  // let age = parseInt(text);
+  // if (age < 6){
+  //   console.log('幼児');
+  // }
+
+  // 繰り返し文
+
+  // 残高が０になるまで繰り返す
+  // let shikin = 50000;
+  // while (shikin >= 0){
+  //   console.log(shikin);
+  //   shikin = shikin - 5080;
+  // }
+
+
 
 
 
