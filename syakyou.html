@@ -1,163 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>写経様</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>写経様</title>
 </head>
 <body>
-  <script>
-  // 四則演算
-  // 足し算
-  console.log(10 + 5);
-  // 引き算
-  console.log(10 - 5);
-  // 掛け算
-  console.log(10 * 5);
-  // 割り算
-  console.log(10 / 5);
-  // 余り
-  console.log(10 % 5);
-  // 乗
-  console.log(6 ** 2);
-  // 実数が含まれる。
-  console.log(2 + 0.5);
-  // 計算の優先度
-  console.log(2 + 10 + 5);
-  console.log(2 + 10 * 5);
-  // かっこを使って優先度を変える
-  console.log((2 + 10) * 5);
-  // さらに複雑なもの
-  console.log(5 / (4 * (1 - 0.2)) );
-  // 負の数値を入れる
-  console.log(2 + 10 * -5);
+	<script>
+	// 四則演算
+	// 足し算
+	console.log(10 + 5);
+	// 引き算
+	console.log(10 - 5);
+	// 掛け算
+	console.log(10 * 5);
+	// 割り算
+	console.log(10 / 5);
+	// 余り
+	console.log(10 % 5);
+	// 乗
+	console.log(6 ** 2);
+	// 実数が含まれる。
+	console.log(2 + 0.5);
+	// 計算の優先度
+	console.log(2 + 10 + 5);
+	console.log(2 + 10 * 5);
+	// かっこを使って優先度を変える
+	console.log((2 + 10) * 5);
+	// さらに複雑なもの
+	console.log(5 / (4 * (1 - 0.2)) );
+	// 負の数値を入れる
+	console.log(2 + 10 * -5);
 
-  // 変数を作成してその値を代入する。　→　let(var)ES6からはletらしい
-  // let text = 'ハロー！';
-  // console.log(text);
+	// 変数を作成してその値を代入する。　→　let(var)ES6からはletらしい
+	// let text = 'ハロー！';
+	// console.log(text);
 
-  // 変数を複数使用する
-  // let kakaku = 100;
-  // let urine = kakaku * 1.08;
-  // console.log( urine );
+	// 変数を複数使用する
+	// let kakaku = 100;
+	// let urine = kakaku * 1.08;
+	// console.log( urine );
 
-  // let kakaku = 150;
-  // let urine = kakaku *1.08;
-  // console.log( urine );
+	// let kakaku = 150;
+	// let urine = kakaku *1.08;
+	// console.log( urine );
 
-  // prompt　プロンプトメソッド データの入力を求めるメソッド
-  // ダイアログが出てくる　あくまで学習用のメソッド
-  // let text = prompt('入力せよ');
-  // console.log(text);
-  // ちょっと工夫
-  // let text = prompt('入力せよ');
-  // console.log('入力したのは' + text)
+	// prompt　プロンプトメソッド データの入力を求めるメソッド
+	// ダイアログが出てくる　あくまで学習用のメソッド
+	// let text = prompt('入力せよ');
+	// console.log(text);
+	// ちょっと工夫
+	// let text = prompt('入力せよ');
+	// console.log('入力したのは' + text)
 
-  // 文字列はstring 数値はnamber
-  // エラーが出てしまう方式
+	// 文字列はstring 数値はnamber
+	// エラーが出てしまう方式
 //
 // 　let kakaku = prompt('価格を入力せよ');
 //   console.log(kakaku + 80);
 // 正しく表示されるやり方
-  // let kakaku = prompt('定価を入力せよ');
-  // console.log(parseInt(kakaku) + 80);
+	// let kakaku = prompt('定価を入力せよ');
+	// console.log(parseInt(kakaku) + 80);
 
-  // 複数の引数を渡す
-  // console.log('ハロー！', 10, 3.5);
-  // あえてエラーが帰る
-  // 内容
-  // Uncaught TypeError: console.lag is not a function
-  // at
-  // 補足不可能な型エラー：「console.lag」は関数ではないと表示される。
-  // console.lag('ハロー');
+	// 複数の引数を渡す
+	// console.log('ハロー！', 10, 3.5);
+	// あえてエラーが帰る
+	// 内容
+	// Uncaught TypeError: console.lag is not a function
+	// at
+	// 補足不可能な型エラー：「console.lag」は関数ではないと表示される。
+	// console.lag('ハロー');
 
-  // Uncaught ReferenceError: taxt is not defined
-  // atとでる
-  // let text = prompt('入力せよ');
-  // console.log(taxt);
+	// Uncaught ReferenceError: taxt is not defined
+	// atとでる
+	// let text = prompt('入力せよ');
+	// console.log(taxt);
 
-  // 条件分岐
-  // 文字列が数値に変換可能かチェックする
-  // isNaN(イズナン)関数を使ってチェックする
+	// 条件分岐
+	// 文字列が数値に変換可能かチェックする
+	// isNaN(イズナン)関数を使ってチェックする
 
-  // let text = prompt('入力せよ');
-  // if(isNaN(text)){
-  //   console.log('数値ではない');
-  // }
+	// let text = prompt('入力せよ');
+	// if(isNaN(text)){
+	//   console.log('数値ではない');
+	// }
 
-  // let text = prompt('入力しろ');
-  // if(! isNaN(text)){
-  //   console.log( parseInt(text) + 80);
-  // }
+	// let text = prompt('入力しろ');
+	// if(! isNaN(text)){
+	//   console.log( parseInt(text) + 80);
+	// }
 
-  // // else節を追加してみる。
-  // let text = prompt('入力せよ');
-  // if (! isNaN(text)){
-  //   console.log(parseInt(text) + 80);
-  // } else {
-  //   console.log('数字ではない');
-  // }
+	// // else節を追加してみる。
+	// let text = prompt('入力せよ');
+	// if (! isNaN(text)){
+	//   console.log(parseInt(text) + 80);
+	// } else {
+	//   console.log('数字ではない');
+	// }
 
-  // 比較演算子
+	// 比較演算子
 
-  // console.log(4 < 5);
-  // console.log(6 < 5);
+	// console.log(4 < 5);
+	// console.log(6 < 5);
 
-  // let text = prompt('年齢は?');
-  // let age = parseInt(text);
-  // if (age < 20){
-  //   console.log('未成年');
-  // }
-  // // 自分で考えたの
-  // let text = prompt('年齢は？');
-  // let age = parseInt(text);
-  // if (age > 65){
-  //   console.log('高齢者です');
-  // } else if(age > 20){
-  //   console.log('成人です');
-  // } else{
-  //   console.log('未成年です');
-  // }
-  // 参考書
-  // let text = prompt('年齢は?');
-  // let age = parseInt(text);
-  // if (age < 20){
-  //   console.log('未成年');
-  // } else if (age < 65){
-  //   console.log('成人');
-  // } else {
-  //   console.log('高齢者');
-  // }
+	// let text = prompt('年齢は?');
+	// let age = parseInt(text);
+	// if (age < 20){
+	//   console.log('未成年');
+	// }
+	// // 自分で考えたの
+	// let text = prompt('年齢は？');
+	// let age = parseInt(text);
+	// if (age > 65){
+	//   console.log('高齢者です');
+	// } else if(age > 20){
+	//   console.log('成人です');
+	// } else{
+	//   console.log('未成年です');
+	// }
+	// 参考書
+	// let text = prompt('年齢は?');
+	// let age = parseInt(text);
+	// if (age < 20){
+	//   console.log('未成年');
+	// } else if (age < 65){
+	//   console.log('成人');
+	// } else {
+	//   console.log('高齢者');
+	// }
 
-  // let text = prompt('年齢は？');
-  // if (! isNaN(text)){
-  //   let age = parseInt(text);
-  //   if (age < 20){
-  //     console.log('未成年');
-  //   }
-  // }
+	// let text = prompt('年齢は？');
+	// if (! isNaN(text)){
+	//   let age = parseInt(text);
+	//   if (age < 20){
+	//     console.log('未成年');
+	//   }
+	// }
 
 // 複数の比較を組み合わせる
 // ＆＆(A かつ　B)
-  // let text = prompt('年齢は？');
-  // let age = parseInt(text);
-  // if (age > 6 && age <15){
-  //   console.log('義務教育の対象');
-  // }
+	// let text = prompt('年齢は？');
+	// let age = parseInt(text);
+	// if (age > 6 && age <15){
+	//   console.log('義務教育の対象');
+	// }
 
 // 幼児と高齢者だけ対象にする
-  // let text = prompt('年齢は?');
-  // let age = parseInt(text);
-  // if (age <= 5 || age >= 65){
-  //   console.log('幼児と高齢者');
-  // }
+	// let text = prompt('年齢は?');
+	// let age = parseInt(text);
+	// if (age <= 5 || age >= 65){
+	//   console.log('幼児と高齢者');
+	// }
 
-  // // !演算子を使ってfalseの時だけ実行する。
-  //  let text = prompt('年齢は？');
-  //  if (! isNaN(text)){
-  //    console.log('数値に変更可能');
-  //  }
+	// // !演算子を使ってfalseの時だけ実行する。
+	//  let text = prompt('年齢は？');
+	//  if (! isNaN(text)){
+	//    console.log('数値に変更可能');
+	//  }
 
 // 年齢層を分析すつプログラムを作ってみる。
 
@@ -221,28 +221,67 @@
 //   }
 // }
 
-  // 6歳未満なら幼児と表示せよ
-  //
-  // let text = prompt('年齢は？');
-  // let age = parseInt(text);
-  // if (age < 6){
-  //   console.log('幼児');
-  // }
+	// 6歳未満なら幼児と表示せよ
+	//
+	// let text = prompt('年齢は？');
+	// let age = parseInt(text);
+	// if (age < 6){
+	//   console.log('幼児');
+	// }
 
-  // 繰り返し文
+	// 繰り返し文
 
-  // 残高が０になるまで繰り返す
-  // let shikin = 50000;
-  // while (shikin >= 0){
-  //   console.log(shikin);
-  //   shikin = shikin - 5080;
-  // }
+	// 残高が０になるまで繰り返す
+	// let shikin = 50000;
+	// while (shikin >= 0){
+	//   console.log(shikin);
+	//   shikin = shikin - 5080;
+	// }
+
+	// for文を使う
+	// 10回繰り返す文
+
+	// for (let cut = 0; cut < 10; cut++){
+	// 	console.log('ハロー！');
+	// }
+	//
+	// for (let cut = 0; cut < 10; cut++){
+	// 	console.log(cut + '回目のハロー！');
+	// }
+
+// 逆にしてみる
+
+	// for (let cut = 10; cut > 0; cut--){
+	// 	console.log(cut + '回目のハロー！');
+	// }
+
+// 繰り返し文で九九の計算表を作る。
+// for文の入れ子「多重ループ」
+	//
+	// for (let x = 1; x < 10; x++){
+	// 	for (let y = 1; y < 10; y++){
+	// 		console.log(x * y);
+	// 	}
+	// }
+
+// より九九らしくするために
+	//
+	// for (x = 1; x < 10; x++){
+	// 	for (y = 1; y < 10; y++){
+	// 		console.log(x + '×'  + y + '=' + x * y);
+	// 	}
+	// }
+
+// 配列
+
+	// 配列に複数のデータを記憶する
+
+	let wdays = ['月', '火', '水', '木', '金'];
+	console.log(wdays[1]);
 
 
 
 
-
-
-  </script>
+	</script>
 </body>
 </html>

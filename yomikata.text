@@ -43,6 +43,10 @@ toExponential　
 
 length　レングス
 
+break ブレイク
+
+continue コンテニュー
+
 ★演算子
 
 ・代入演算子
@@ -60,6 +64,7 @@ length　レングス
 %  (あまり)
 ** (じょう)
 
+・インクリメント演算子
 xx++ ()
 xx-- ()
 ++xx ()
