@@ -467,21 +467,42 @@
 	// }
 	//
 
-	let creatMaill = (recv) => {
-		console.log('初めまして' + recv + '様');
+// 自分で考えてやったの
+	// let creatMaill = (recv) => {
+	// 	console.log('初めまして' + recv + '様');
+	// }
+	// creatMaill('山本');
+	//
+	// let addCharge = (bill) => {
+	// 	return bill * 1.07;
+	// 	if (bill <= 0){
+	// 		bill = 0;
+	// 	}
+	// }
+	// console.log(addCharge(-1000));
+
+// 回答
+
+	let createMaill = (recv) => {
+		console.log(recv + '様');
+		console.log('初めまして。');
 	}
-	creatMaill('山本');
+	createMaill('白鳥');
 
 	let addCharge = (bill) => {
-		return bill * 1.07;
-		if (bill <= 0){
-			bill = 0;
+		if(bill < 0){
+			return 0;
 		}
-	}
+		return bill * 1.07;
+	};
 	console.log(addCharge(-1000));
 
 
-
 </script>
+<h1>サンプルプログラム</h1>
+<input type="text" name="" id="">
+<butto>実行</butto>
+<p>結果表示</p>
+<script src="chap5.js"></script>
 </body>
 </html>
