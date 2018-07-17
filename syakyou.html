@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,10 +56,10 @@
 
 	// 文字列はstring 数値はnamber
 	// エラーが出てしまう方式
-//
-// 　let kakaku = prompt('価格を入力せよ');
-//   console.log(kakaku + 80);
-// 正しく表示されるやり方
+	//
+	// 　let kakaku = prompt('価格を入力せよ');
+	//   console.log(kakaku + 80);
+	// 正しく表示されるやり方
 	// let kakaku = prompt('定価を入力せよ');
 	// console.log(parseInt(kakaku) + 80);
 
@@ -138,15 +138,15 @@
 	//   }
 	// }
 
-// 複数の比較を組み合わせる
-// ＆＆(A かつ　B)
+	// 複数の比較を組み合わせる
+	// ＆＆(A かつ　B)
 	// let text = prompt('年齢は？');
 	// let age = parseInt(text);
 	// if (age > 6 && age <15){
 	//   console.log('義務教育の対象');
 	// }
 
-// 幼児と高齢者だけ対象にする
+	// 幼児と高齢者だけ対象にする
 	// let text = prompt('年齢は?');
 	// let age = parseInt(text);
 	// if (age <= 5 || age >= 65){
@@ -159,67 +159,67 @@
 	//    console.log('数値に変更可能');
 	//  }
 
-// 年齢層を分析すつプログラムを作ってみる。
+	// 年齢層を分析すつプログラムを作ってみる。
 
-// 自分で考えてみて埋めてみたけど積んだ。
+	// 自分で考えてみて埋めてみたけど積んだ。
 
-// let text = prompt('年齢は？');
-// let age = parseInt(text);
-// if (age > 6 && age > 16) {
-//   console.log('未成年(義務教育)')
-// } else if (age < 20){
-//   console.log('未成年');
-// } else if (age < 65){
-//   console.log('成人');
-// } else{
-//   console.log('高齢者');
-// }
+	// let text = prompt('年齢は？');
+	// let age = parseInt(text);
+	// if (age > 6 && age > 16) {
+	//   console.log('未成年(義務教育)')
+	// } else if (age < 20){
+	//   console.log('未成年');
+	// } else if (age < 65){
+	//   console.log('成人');
+	// } else{
+	//   console.log('高齢者');
+	// }
 
-// // まず、一連の流れを書き込む
-// let text = prompt('年齢は？');
-// if (! isNaN(text)){
-//   let age = parsInt(text);
-//   if (age < 20){
-//     console.log('未成年');
-//   } else if(age < 65){
-//     console.log('成人');
-//   } else {
-//     console.log('高齢者');
-//   }
-// }
+	// // まず、一連の流れを書き込む
+	// let text = prompt('年齢は？');
+	// if (! isNaN(text)){
+	//   let age = parsInt(text);
+	//   if (age < 20){
+	//     console.log('未成年');
+	//   } else if(age < 65){
+	//     console.log('成人');
+	//   } else {
+	//     console.log('高齢者');
+	//   }
+	// }
 
-// // 上のプログラムに義務教育が該当する年齢も判定させる。
-// let text = prompt('年齢は?');
-//   if (! isNaN(text)){
-//     let age = parseInt(text);
-//     if (age < 20){
-//     console.log('未成年');
-//     if (age >= 6 && age <= 15){
-//       console.log('(義務教育)');
-//     }
-//   } else if (age < 65){
-//     console.log('成人です');
-//   } else {
-//     console.log('高齢者です');
-//   }
-// }
+	// // 上のプログラムに義務教育が該当する年齢も判定させる。
+	// let text = prompt('年齢は?');
+	//   if (! isNaN(text)){
+	//     let age = parseInt(text);
+	//     if (age < 20){
+	//     console.log('未成年');
+	//     if (age >= 6 && age <= 15){
+	//       console.log('(義務教育)');
+	//     }
+	//   } else if (age < 65){
+	//     console.log('成人です');
+	//   } else {
+	//     console.log('高齢者です');
+	//   }
+	// }
 
-// 思い出しながら写経
-//
-// let text = prompt('年齢は？');
-// if (! isNaN(text)){
-//   let age = parseInt(text);
-//   if (age < 20){
-//     console.log('未成年');
-//     if (age >= 6 && age <= 15){
-//       console.log('(義務教育)');
-//     }
-//   } else if (age < 65){
-//     console.log('成人');
-//   } else {
-//     console.log('高齢者');
-//   }
-// }
+	// 思い出しながら写経
+	//
+	// let text = prompt('年齢は？');
+	// if (! isNaN(text)){
+	//   let age = parseInt(text);
+	//   if (age < 20){
+	//     console.log('未成年');
+	//     if (age >= 6 && age <= 15){
+	//       console.log('(義務教育)');
+	//     }
+	//   } else if (age < 65){
+	//     console.log('成人');
+	//   } else {
+	//     console.log('高齢者');
+	//   }
+	// }
 
 	// 6歳未満なら幼児と表示せよ
 	//
@@ -249,14 +249,14 @@
 	// 	console.log(cut + '回目のハロー！');
 	// }
 
-// 逆にしてみる
+	// 逆にしてみる
 
 	// for (let cut = 10; cut > 0; cut--){
 	// 	console.log(cut + '回目のハロー！');
 	// }
 
-// 繰り返し文で九九の計算表を作る。
-// for文の入れ子「多重ループ」
+	// 繰り返し文で九九の計算表を作る。
+	// for文の入れ子「多重ループ」
 	//
 	// for (let x = 1; x < 10; x++){
 	// 	for (let y = 1; y < 10; y++){
@@ -264,7 +264,7 @@
 	// 	}
 	// }
 
-// より九九らしくするために
+	// より九九らしくするために
 	//
 	// for (x = 1; x < 10; x++){
 	// 	for (y = 1; y < 10; y++){
@@ -272,16 +272,216 @@
 	// 	}
 	// }
 
-// 配列
+	// 配列
 
 	// 配列に複数のデータを記憶する
+	//
+	// let wdays = ['月', '火', '水', '木', '金'];
+	// console.log(wdays[1]);
 
-	let wdays = ['月', '火', '水', '木', '金'];
-	console.log(wdays[1]);
+	// 配列の置き換え
+
+	// let wdays = ['月', '火', '水', '木', '金'];
+	// wdays[1] = '炎';
+	// console.log(wdays);
+
+	// 配列と繰り返し文を組み合わせた書き方
+	//
+	// let wdays = ['月', '火', '水', '木', '金'];
+	// for(let day of wdays){
+	// 	console.log(day + '曜日');
+	// }
+
+// for文を使ってインデックスを指定する
+//
+	// let wdays = ['月', '火', '水', '木', '金'];
+	// for (let cut = 0; cut < 5; cut++){
+	// 	console.log(wdays[cut] + '曜日');
+	// }
+
+	// let team = ['A', 'B', 'C', 'D', 'E'];
+	// for(let t1 of team){
+	// 	for (let t2 of team){
+	// 		console.log(t1 + 'vs' + t2);
+	// 	}
+	// }
+
+// E5環境の場合どうやるの？って思ってやってみたけど積んだ。
+	// let team = ['A', 'B', 'C', 'D', 'E'];
+	// for (let t1 = 0; t1 < 5; t1++){
+	// 	for (let t2 = 0; t2 < 5; t2++){
+	// 		console.log(t1 + 'vs' + t2);
+	// 	}
+	// }
+
+// 同一チーム名を表示しないプログラム
+// 当たってたよかった。
+	// let team = ['A', 'B', 'C', 'D', 'E'];
+	// for(let t1 of team){
+	// 	for (let t2 of team){
+	// 		if (t1 != t2){
+	// 			console.log(t1 + 'vs' + t2);
+	// 		}
+	// 	}
+	// }
+
+// 上の書き方でもチーム名の重複が事実上無くなっていないので
+// １次元を２次元に
+
+	// let team = ['A', 'B', 'C', 'D', 'E'];
+	// let opps = ['A', 'B', 'C', 'D', 'E'];
+	// for (let t1 of team){
+	// 	opps.shift();
+	// 	for(let t2 of opps){
+	// 		console.log(t1 + 'vs' + t2);
+	// 	}
+	// }
+
+// 復習ドリル　東西南北を表示するプログラムをかく
+
+	 // let dir = ['東', '西', '南', '北'];
+	 // for (let d of dir){
+		//  console.log(d);
+	 // }
+	 //
+	// es5の書き方をしたかったんだけどなんとも・・・。
+	// var dir = ['東', '西', '南', '北'];
+	// 	for (var cut = 0; cut < 4; cut++){
+	// 		console.log(dir[cut]);
+	// }
+// どっちがいいんだろう　及川先生。。。
+	// var dir = ['東', '西', '南', '北'];
+	// 	for (i = 0; i < 4; i++){
+	// 		console.log(dir[i]);
+	// }
+
+
+// cut >= 0;　ここの　>= これを > これで書いてて、
+// うまくいかなくて困った。
+	// let wdays = ['月', '火', '水', '木', '金'];
+	// for (let cut = 4; cut >= 0; cut--){
+	// 	console.log(wdays[cut]);
+	// }
+
+// 関数の書き方を覚えよう
+
+	// let createMail = () => {
+	// 	console.log('PT企画の斉藤です。');
+	// 	console.log('請求書を送ります。');
+	// }
+	// createMail();
+
+// 引数を受け取る関数を作る。
+
+// 	let createMail = (recv) => {
+// 		console.log(recv + '様');
+// 		console.log('PT企画の斉藤です。');
+// 		console.log('請求書を送ります。');
+// 	}
+//
+// createMail('山本');
+// createMail('吉田');
+
+// ES5記述で
+	// function createMail(recv){
+	// 	console.log(recv + '様');
+	// 	console.log('PT企画の斉藤です。');
+	// 	console.log('請求書を送ります。');
+	// }
+	// createMail('山本');
+	// createMail('吉田');
+
+// 定型文の受信者名に任意のも自分を差し込む(ES6)
+
+// 	let createMail = (recv, bill) => {
+// 		let msg = `${recv}様
+// PT企画の斉藤です。
+// 今月の請求額は${bill}円です。`;
+// 		console.log(msg);
+// 	};
+// 	createMail('山本', 40000);
+
+// 定型文の受信者名に任意のも自分を差し込む(ES5)
+	// function createMail (recv, bill){
+	// 	var msg = recv + '様\n'
+	// 	+ 'PT企画の斉藤です。\n'
+	// 	+ '今月の請求額は' + bill + '円です。';
+	// 	console.log(msg);
+	// };
+	// createMail('山本', 40000);
+
+// 戻り値を返す関数を作る(ES6)
+// return文
+	//
+	// let addCharge = (bill) => {
+	// 	return bill * 1.07;
+	// };
+	//
+	// console.log(addCharge(40000));
+
+// 戻り値を返す関数を作る(ES5)
+	// function addCharge (bill){
+	// 	return bill * 1.07;
+	// }
+	// console.log(addCharge(40000));
+
+// オブジェクトを使って複数のデータをまとめる
+// 単一
+// let date = {name: '山本', bill:40000, crg:true};
+// console.log(date['name']);
+// console.log(date['bill']);
+
+// 複数
+// let date = [
+// 	{name: '山本', bill:40000, crg:true},
+// 	{name: '吉田', bill:25000, crg:false}
+// ];
+// console.log(date[1]['name']);
+// console.log(date[1]['bill']);
+
+	// // メールを作る関数
+	// let creatMail = (recv, bill) => {
+	// 	let msg = `${recv}さま
+	// PT企画の斉藤です。
+	// 今月の請求額は${bill}円です。`
+	// 	console.log(msg)
+	// };
+	// // 手数料を追加する関数
+	// let addCharge = (bill) => {
+	// 	return bill * 1.07;
+	// };
+	//
+	// // そう新作データ
+	// let date = [
+	// 	{name:'山本', bill:40000, crg:true},
+	// 	{name:'吉田', bill:25000, crg:false}
+	// ];
+	//
+	// // メールを作成実行
+	// for(let rec of date){
+	// 	let bill = rec['bill']
+	// 	if(rec['crg']){
+	// 		bill = addCharge(bill);
+	// 	}
+	// 	creatMail(rec['name'],bill);
+	// }
+	//
+
+	let creatMaill = (recv) => {
+		console.log('初めまして' + recv + '様');
+	}
+	creatMaill('山本');
+
+	let addCharge = (bill) => {
+		return bill * 1.07;
+		if (bill <= 0){
+			bill = 0;
+		}
+	}
+	console.log(addCharge(-1000));
 
 
 
-
-	</script>
+</script>
 </body>
 </html>
