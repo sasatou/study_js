@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>数値を加算する</title>
+	<script>
+		// 加算するための変数を宣言
+		let count = 0;
+		// 1秒おきに画面上の数値に加算する
+		let countup = () => {
+			setInterval(function(){
+				count++;
+				document.getElementById('number').innerText = count;
+			},1000);
+		}
+	</script>
+</head>
+<body onload="countup()">
+	<span id="number">0</span>
+</body>
+</html>

@@ -50,11 +50,11 @@ toString　トゥーストリング
 toExponential　
 
 
-
 break ブレイク
 
 continue コンテニュー
 
+setInterval セットインターバル
 
 ★Windowオブジェクト
   ・documentオブジェクト
@@ -66,9 +66,6 @@ continue コンテニュー
     -
   ・addEventListner アドイベントリスナーメソッド
     -
-
-
-
 
 ★配列
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>条件分岐</title>
+</head>
+<body>
+	<script>
+	// // 変数を宣言する。
+	// let kekka;
+	// // 確認ダイアログを表示して、結果を変数に代入する。
+	// kekka = confirm('処理を進めて行きますか？');
+	// // 確認ダイアログの結果ごとに処理を分岐させる
+	// if (kekka == true){
+	// 	// okボタンが押された場合実行する処理
+	// 	alert('okが押されました。');
+	// } else {
+	// 	// OKボタンが押された場合以外に実行する処理
+	// 	alert('キャンセルが押されました')
+	// }
+
+	// 変数を宣言
+	let kekka;
+	// 入力ダイアログを表示して、入力内容を変数に代入する。
+	kekka = prompt('あなたは中学何年生ですか？', '1~3の間で入力してください。');
+
+	switch(kekka){
+		case '1':
+			// [1]と入力された場合に実行する処理
+			alert('１年生ですね。中学校は楽しいですか？');
+			break;
+		case '2':
+			// [2]と入力された場合に実行する処理
+			alert('２年生ですね。来年は受験ですね。');
+			break;
+		case '3':
+			// [3]と入力された場合に実行する処理
+			alert('３年生ですね。中学生活もあと少しです。');
+			break;
+		default:
+			// 入力がそれ以外の場合
+			alert('入力が正しくありません');
+			break;
+	}ß
+	</script>
+<h1>条件分岐</h1>
+<script src="common.js"></script>
+</body>
+</html>

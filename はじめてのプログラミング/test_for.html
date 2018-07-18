@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>繰り返し</title>
+</head>
+<body>
+	<script>
+	// // for文
+	// let arr = [100, 200, 300, 400];
+	// for (let i = 0; i < 4; i++){
+	// 	console.log(arr[i]);
+	// }
+
+	// // whill文
+	// // 変数を宣言して初期値を代入する。
+	// let i = 1;
+	// // 変数が４以下の場合処理を繰り返す。
+	// whill(i <= 4){
+	// 	// コンソールに表示する
+	// 	console.log(i + '回目');
+	// 	// 変数iの値を1追加する。
+	// 	i++;
+	// }
+
+	// // 変数を宣言する。
+	// let hensu1 = 1;
+	// // 処理を10回繰り返す。
+	// for(let i = 0; i < 10; i++){
+	// 	// hensu1の値とiの値を足す
+	// 	hensu1 = hensu1 + i;
+	// }
+	// // hensu1をダイアログで表示する。
+	// alert(hensu1);
+	//
+	// // 変数を宣言する。
+	// let hensu2 = 10;
+	// // 処理を10回繰り返す。
+	// for (let i = 0; i < 10; i++){
+	// 	hensu2 = hensu2 + i;
+	// }
+	// alert(hensu2);
+	//
+	// // 変数を宣言する。
+	// let hensu3 = 100;
+	// for (let i = 0; i < 10; i++){
+	// 	hensu3 = hensu3 + i;
+	// }
+	// alert(hensu3);
+
+	// 関数を作って省略してみる。
+	// 関数を自作する
+	// function myFunction(hikisu){
+	// 	// 引数の値を取得する
+	// 	let temp = hikisu;
+	// 	// 処理を10回繰り返す
+	// 	for(let i = 0; i < 10; i++){
+	// 		// 退避した引数の値とiの値をたす。
+	// 		temp = temp + i;
+	// 	}
+	// 	// 戻り値を返却する。
+	// 	return temp;
+	// }
+	//
+	// // 自作した関数を呼び出す。
+	// let hensu1 = myFunction(1);
+	// let hensu2 = myFunction(10);
+	// let hensu3 = myFunction(100);
+	//
+	// // メッセージをダイアログを表示する。
+	// alert(hensu1);
+	// alert(hensu2);
+	// alert(hensu3);
+
+	// アロー関数
+	let myFunction = (hikisu) => {
+		let temp = hikisu;
+		for(let i = 0; i < 10; i++){
+			temp = temp + i;
+		}
+		return temp;
+	}
+	let hensu1 = myFunction(1);
+	let hensu2 = myFunction(10);
+	let hensu3 = myFunction(100);
+
+	alert(hensu1);
+	alert(hensu2);
+	alert(hensu3);
+
+	</script>
+<h1>繰り返し</h1>
+<script src="common.js"></script>
+</body>
+</html>

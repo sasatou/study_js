@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>文字や背景の色を変える</title>
+</head>
+<body>
+	<script>
+	// 「こんにちは」の文字色と背景を変える処理
+	let func1 = () => {
+		// 文字の色を変える
+		document.getElementById('moji1').style.color = 'red';
+		// 背景の色を
+		document.bgColor = '#90ee90';
+		// 「こんばんは」の文字色と背景を変える処理
+	}
+	let func2 = () => {
+		// 文字色を変える
+		document.getElementById('moji1').style.color = 'black';
+		document.getElementById('moji2').style.color = 'red';
+		// 背景色を変える
+		document.bgColor = '#00ffff';
+	}
+	let func3 = () => {
+		document.getElementById('moji1').style.color = '#fff';
+		document.getElementById('moji2').style.color = '#fff';
+		document.bgColor = '#000';
+	}
+	</script>
+<h1>文字や背景の色を変える</h1>
+<p id="moji1">こんにちは</p>
+<p id="moji2">こんばんは</p>
+<input type="button" value="こんにちは" onclick='func1()'>
+<input type="button" value="こんばんは" onclick='func2()'>
+<input type="button" value="おはようございます" onclick='func3()'>
+<div></div>
+<script src="common.js"></script>
+</body>
+</html>
