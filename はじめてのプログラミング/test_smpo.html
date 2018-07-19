@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>お散歩プログラム</title>
+	<style>
+	input{
+		display: inline-block;
+		border: 1px solid #ccc;
+	}
+	#star{
+		position: absolute;
+	}
+	</style>
+	<script>
+let moveStar = () => {
+	// 押されたキーを取得する
+	let keyCode = event.keyCode;
+	// 「★」の位置情報を取得する
+	let star = document.getElementById('star');
+	let top = parseInt(star.offsetTop); // 縦
+	let left = parseInt(star.offsetLeft); // 横
+	// 押されたキーに応じて、上下左右に★の位置を変更する。
+	if (keyCode == 37) {
+		star.style.left = left - 10;
+	} else if (keyCode == 38) {
+		star.style.top = top - 10;
+	} else if (keyCode == 39) {
+		star.style.left = left + 10;
+	} else if (keyCode == 40) {
+		star.style.top = top + 10;
+	}
+}
+//
+// let moveStar = () => {
+// 	let keyCode = event.keyCode;
+// 	let star = document.getElementById('star');
+// 	let top = parseInt( star.offsetTop);
+// 	let left = parseInt( star.offsetLeft);
+// 	if (keyCode == 37) {
+// 		star.style.left = left - 10;
+// 	} else if (keyCode == 38) {
+// 		star.style.top = top - 10;
+// 	} else if (keyCode == 39) {
+// 		star.style.left = left + 10;
+// 	} else if (keyCode == 40) {
+// 		star.style.top = top + 10;
+// 	}
+// }
+</script>
+</head>
+<body onKeyDown="moveStar()">
+	<p>キーボードの「↑」「↓」「→」「←」で星印が動きます。</p>
+	<div id="star">★</div>
+</body>
+</html>
