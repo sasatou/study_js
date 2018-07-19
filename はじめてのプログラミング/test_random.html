@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ボタンを押すたびに異なる数字を表示する</title>
+	<script>
+	// // セレクター版
+	// let show = () => {
+	// 	// 0〜9の間の整数をランダムで生成る
+	// 	let ransu = Math.floor(Math.random() * 10);
+	// 	// 生成した乱数をメッセージダイアログで表示する
+	// 	document.querySelector('p').innerText = (ransu);
+	// }
+
+	// クラス版(うまくいかない何か問題があるっぽい)
+	// let show = () => {
+	// 	let ransu = Math.floor(Math.random() * 10);
+	// 	document.getElementsByClassName('test').innerText = (ransu);
+	// }
+
+// 5~10の間の整数をランダムに返す。
+	let show = () => {
+		// 0〜9の間の整数をランダムで生成る
+		let ransu = Math.floor(Math.random() * 6) + 5;
+		// 生成した乱数をメッセージダイアログで表示する
+		document.querySelector('p').innerText = (ransu);
+	}
+
+
+	</script>
+	<style>
+	input{
+		display: block;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<p>乱数を表示<span class="test"></span></p>
+	<input type="button" name="" value="乱数を表示する" onclick="show()">
+</body>
+</html>
