@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>デジタル時計プログラム</title>
+	<style>
+	input{
+		display: inline-block;
+		border: 1px solid #ccc;
+	}
+	＃kekka{
+		width: 80%;
+		height: 20px;
+		border: 1px solid #ccc;
+	}
+	</style>
+	<script>
+	let countClock = () => {
+		// 日付の情報を取得する
+		let dates = new Date();
+		let hour = dates.getHours(); // 時の取得
+		let min = dates.getMinutes(); // 分の取得
+		let sec = dates.getSeconds(); // 秒の取得
+		// 取得した各日付値を２桁に揃える
+		// 00~024まで表示される右２桁をスライスすると
+		// 1桁の場合は削られず、3桁の場合は一番左が削られる
+		hour = ('0' + hour).slice(-2);
+		min = ('0' + min).slice(-2);
+		sec = ('0' + sec).slice(-2);
+		// 画面に整形した時刻用の文言を表示する
+		let clock = document.getElementById('now');
+		clock.innerHTML = hour + ':' + min + ':' + sec;
+	}
+	let startClock = () => {
+		setInterval(countClock, 1000);
+	}
+	</script>
+</head>
+<body onload="startClock()">
+	<h1>デジタル時計プログラム</h1>
+	<!-- <input type="button" name="" value="グー" onclick="janken(1)"> -->
+	<p id="now"></p>
+</body>
+</html>

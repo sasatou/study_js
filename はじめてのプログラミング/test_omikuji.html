@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>おみくじプログラム</title>
+	<script>
+		let divine = () => {
+			// 1〜7の間の整数を生成する。
+			let r = Math.floor(Math.random() * 7);
+			let forune;
+			// 生成した乱数の値ごとにおみくじ結果を決定する。
+			switch(r){
+				case 0:
+				forune = '大吉';
+				break;
+				case 1:
+				forune = '吉';
+				break;
+				case 2:
+				forune = '中吉';
+				break;
+				case 3:
+				forune = '小吉';
+				break;
+				case 4:
+				forune = '末吉';
+				break;
+				case 5:
+				forune = '凶';
+				break;
+				case 6:
+				forune = '大凶';
+				break;
+			}
+			document.getElementById('kekka').innerText = ('あなたの運勢は、【' + forune + '】です。');
+		}
+	</script>
+	<style>
+	input{
+		display: block;
+		border: 1px solid #ccc;
+	}
+	＃kekka{
+		width: 80%;
+		height: 20px;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<h1>おみくじプログラム</h1>
+	<input type="button" name="" value="おみくじを引く" onclick="divine()">
+	<p id="kekka"></p>
+</body>
+</html>

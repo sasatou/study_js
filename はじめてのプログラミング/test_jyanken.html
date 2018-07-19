@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>じゃんけんプログラム</title>
+	<script>
+		let janken = (jibun) => {
+			// 1〜３の間の乱数を生成（０ → グー、１ → チョキ、２ → パー、）
+			let aite = Math.floor(Math.random() * 3);
+			let result;
+			// じゃんけん結果に応じた文言の生成
+			// 相手と自分が同じだった場合「あいこ」
+			if(aite == jibun){
+				result ='あいこ';
+				// 相手がグー、自分がパーの場合勝ち
+			} else if (aite == 0 && jibun == 2){
+				result = '勝ち！';
+				// 相手がチョキ、自分がグーの場合勝ち
+			} else if (aite == 1 && jibun == 0){
+				result = '勝ち！';
+				// 相手がパー、自分がチョキの場合勝ち
+			} else if (aite == 2 && jibun == 1){
+				result = '勝ち！';
+				//
+				// それ以外は負け
+			} else {
+				result = '負け・・・';
+			}
+			// 相手の手のテキスト生成
+			let message = '相手の手:';
+			// 0と等しければ「相手の手:」を足してグーを返す
+			if (aite == 0){
+				message += 'グー';
+				// 1と等しければ「相手の手:」を足してチョキを返す
+			} else if (aite == 1){
+				message += 'チョキ';
+				// 2と等しければ「相手の手:」を足してパーを返す
+			} else if (aite == 2){
+				message += 'パー';
+			}
+			// 「相手の手:」を足してresultを代入
+			message += '\n' + result;
+
+			document.getElementById('kekka').innerText = (message);
+		}
+	</script>
+	<style>
+	input{
+		display: inline-block;
+		border: 1px solid #ccc;
+	}
+	＃kekka{
+		width: 80%;
+		height: 20px;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<h1>じゃんけんプログラム</h1>
+	<input type="button" name="" value="グー" onclick="janken(1)">
+	<input type="button" name="" value="チョキ" onclick="janken(2)">
+	<input type="button" name="" value="パー" onclick="janken(3)">
+	<p id="kekka"></p>
+</body>
+</html>

@@ -56,6 +56,9 @@ continue コンテニュー
 
 setInterval セットインターバル
 
+slice スライス
+
+
 ★Windowオブジェクト
   ・documentオブジェクト
     - document.querySelectorメソッド
@@ -63,13 +66,14 @@ setInterval セットインターバル
 
 ★Elementオブジェクト
   ・value プロパティ
-    -
+    - 入力された値を取得する。（他にもある）
   ・addEventListner アドイベントリスナーメソッド
     -
 
 ★Mathオブジェクト
   ・Math.floor()
-
+    - 小数点以下を切り捨てる
+      ・整数の場合は切り捨て、負の場合は繰り上げ。
   ★乱数を生成する。
   let ransu = Math.floor(Math.random() * 10);
 
