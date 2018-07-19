@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ワリカンプログラム</title>
+	<script>
+	let calculate = () => {
+		// 画面の入力値を取得する
+		let num = document.getElementById('number').value;
+		let bill = document.getElementById('bill').value;
+		// 一人当たりの金額と余りを計算する。
+		// 総額billと人数numを割って小数点以下を切り捨てて変数に代入
+		let result = Math.floor(bill / num);
+		// 変数resultと人数を掛け総額billから引きありを算出する。
+		// 変数resultが小数点を切り捨てしてあるので総額からマイナスすると
+		// あまりが出る計算
+		let remain = bill - result * num;
+		// あまりの有無に応じたメッセージ文言を作成する。
+		let message = '一人当たりの支払い金額は' + result + '円、';
+		// 変数remainの値が０より大きい場合は以下を実行する。
+		if (remain > 0){
+			message += '余りが' + remain + '円です。';
+			// 小さい場合は以下を実行
+		} else {
+			message += '余りはありません。';
+		}
+		document.getElementById('kekka').innerText = (message);
+	}
+	</script>
+	<style>
+	input{
+		display: block;
+		border: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+	<p>人数:<input type="text" id="number" size="2">人</p>
+	<p>金額:<input type="text" id="bill" size="6">円</p>
+	<input type="button" name="" value="計算" onclick="calculate()">
+	<p id="kekka"></p>
+</body>
+</html>

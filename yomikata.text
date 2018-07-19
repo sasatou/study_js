@@ -56,12 +56,9 @@ continue コンテニュー
 
 setInterval セットインターバル
 
-★乱数を生成する。
-let ransu = Math.floor(Math.random() * 10);
-
 ★Windowオブジェクト
   ・documentオブジェクト
-    - querySelectorメソッド
+    - document.querySelectorメソッド
       - セレクタを問い合わせる
 
 ★Elementオブジェクト
@@ -69,6 +66,12 @@ let ransu = Math.floor(Math.random() * 10);
     -
   ・addEventListner アドイベントリスナーメソッド
     -
+
+★Mathオブジェクト
+  ・Math.floor()
+
+  ★乱数を生成する。
+  let ransu = Math.floor(Math.random() * 10);
 
 ★配列
 
