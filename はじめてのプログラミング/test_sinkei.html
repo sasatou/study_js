@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>神経衰弱プログラム</title>
+	<style>
+	input{
+		display: inline-block;
+		border: 1px solid #ccc;
+	}
+	#star{
+		position: absolute;
+	}
+	button{
+		width:75px;
+		line-height: 110px;
+		margin: 3px;
+		border: 1px solid #000;
+		border-radius: 4px;
+		background: #ccc;
+	}
+	button:disabled{
+		background: #fff;
+	}
+	#container {
+		display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 120px 120px 120px 120px;
+	}
+	</style>
+<script>
+	// // カードの配置情報を格納する配置変数を宣言
+	// let cards = [];
+	// // カードの配置情報を初期化
+	// let init = () =>{
+	// 	// 使用するカードのセットとして、1〜８（♠︎・♡）の２種 x ８組 = 16枚セット
+	// 	let cardSet = [];
+	// 	let cardNum = 1;
+	// 	for(let c = 0; c < 16; c += 2) {
+	// 		// 配列の寓す番目には♠︎の1〜８をセット
+	// 		cardSet[c] = ['♠︎', cardNum];
+	// 		// 配列の奇数番目には♡の1〜８をセット
+	// 		cardSet[c + 1] = ['♡', cardNum];
+	// 		cardNum++;
+	// 	}
+	// 	// 作成したカードセットをシャッフル
+	// 	for(let s = 0; s < 50; s++){
+	// 		// カード情報の配列からランダムに２箇所を選択して入れ替える
+	// 		// これを50回繰り返してシャッフルする。
+	// 		let r1 = Math.floor(Math.random() * cardSet.length);
+	// 		let r2 = Math.floor(Math.random() * cardSet.length);
+	// 		let tmp = cardSet[r1];
+	// 		cardSet[r1] = cardSet[r2];
+	// 		cardSet[r2] = tmp;
+	// 	}
+	// 	// シャッフルしたカードセットを左上から順番に配置
+	// 	for(let y = 0; y < 4; y++){
+	// 		cards[y] = [];
+	// 		for(let x = 0; x < 4; x++){
+	// 			cards[y][x] = cardSet[y * 4 + x];
+	// 		}
+	// 	}
+	// }
+	// // 直前にめくったカードの位置情報(横位置)
+	// let px = null;
+	// // 直前にめくったカードの位置情報(縦位置)
+	// let py = null;
+	// // めくった枚数
+	// let ccnt = 0;
+	// // クリックした位置のカードをめくる(引数ax,ayはクリック位置の情報)
+	// let turn = (ay, ax) => {
+	// 	// クリック位置に対応するカード情報を取り出す
+	// 	let current = cards[ay][ax];
+	// 	let card = document.getElementById(ay + '_' + ax);
+	// 	// クリック位置にカードを表示する
+	// 	card.innerHTML = current[0] + current[1];
+	// 	// クリック位置を操作不能にする
+	// 	card.disabled = ture;
+	// 	// めくった枚数をカウントアップ
+	// 	ccnt++;
+	// 	if(px == null){
+	// 		// ax が null(=1枚目)の場合、今の位置情報をpx,pyに保存
+	// 		px = ax;
+	// 		py = ay;
+	// 	} else {
+	// 		// 直前にめくった位置に対応するカード情報を取り出す。
+	// 		let previous = cards[py][px];
+	// 		setTimeout(
+	// 			function(){
+	// 				// １枚目と２枚目が同じ数字の場合は「あたり」
+	// 				if(previous[1] == current[1]){
+	// 					alert('あたり！');
+	// 				} else {
+	// 					// １枚目と２枚目が違う数字の場合は「外れ」
+	// 					alert('はずれ・・・');
+	// 					// めくったカードを元に戻す
+	// 					let pcard = document.getElementById(py + '_' + px);
+	// 					pcard.innerHTML = '? ';
+	// 					pcard.disabled = false;
+	// 					card.innerHTML = '? ';
+	// 					card.disabled = false;
+	// 					ccnt -= 2;
+	// 				}
+	// 				// 直前にめくったカードの位置情報を初期化する。
+	// 				px = null;
+	// 				py = null;
+	// 				// めくった枚数が16枚に達した場合、全てのカードがめくられたと判断する。
+	// 				if(ccnt >= 16){
+	// 					complete();
+	// 				}
+	// 			},50);
+	// 		}
+	// 	}
+	// 	// ゲームクリアの処理
+	// 	let complete = () => {
+	// 		alert('ゲームクリア！');
+	// 	}
+
+ // let cards = [];
+	// let init = () =>{
+	// 	let cardSet = [];
+	// 	let cardNum = 1;
+	// 	for(let c = 0; c < 16; c += 2) {
+	// 		cardSet[c] = ['♠︎', cardNum];
+	// 		cardSet[c + 1] = ['♡', cardNum];
+	// 		cardNum++;
+	// 	}
+	// 	for(let s = 0; s < 50; s++){
+	// 		let r1 = Math.floor(Math.random() * cardSet.length);
+	// 		let r2 = Math.floor(Math.random() * cardSet.length);
+	// 		let tmp = cardSet[r1];
+	// 		cardSet[r1] = cardSet[r2];
+	// 		cardSet[r2] = tmp;
+	// 	}
+	// 	for(let y = 0; y < 4; y++){
+	// 		cards[y] = [];
+	// 		for(let x = 0; x < 4; x++){
+	// 			cards[y][x] = cardSet[y * 4 + x];
+	// 		}
+	// 	}
+	// }
+	// //
+	// let px = null;
+	// let py = null;
+	// let ccnt = 0;
+	// let turn = (ay, ax) => {
+	// 	let current = cards[ay][ax];
+	// 	let card = document.getElementById(ay + '_' + ax);
+	// 	card.innerHTML = current[0] + current[1];
+	// 	card.disabled = ture;
+	// 	ccnt++;
+	// 	if(px == null){
+	// 		px = ax;
+	// 		py = ay;
+	// 	} else {
+	// 		let previous = cards[py][px];
+	// 		setTimeout(
+	// 			function(){
+	// 				if(previous[1] == current[1]){
+	// 					alert('あたり！');
+	// 				} else {
+	// 					alert('はずれ・・・');
+	// 					let pcard = document.getElementById(py + '_' + px);
+	// 					pcard.innerHTML = '? ';
+	// 					pcard.disabled = false;
+	// 					card.innerHTML = '? ';
+	// 					card.disabled = false;
+	// 					ccnt -= 2;
+	// 				}
+	// 				px = null;
+	// 				py = null;
+	// 				if(ccnt >= 16){
+	// 					complete();
+	// 				}
+	// 			},50);
+	// 		}
+	// 	}
+ //
+	// 	let complete = () => {
+	// 		alert('ゲームクリア！');
+	// 	}
+	let cards =[];
+	function init() {
+		let cardSet = [];
+		let cardNum = 1;
+		for (let c = 0; c < 16; c += 2) {
+			cardSet[c] = ['♠', cardNum];
+			cardSet[c + 1] = ['♥', cardNum];
+			cardNum ++; }
+			for (let s = 0; s < 50; s ++) {
+				let r1 = Math.floor(Math.random() * cardSet.length);
+				let r2 = Math.floor(Math.random() * cardSet.length);
+				let tmp = cardSet[r1]; cardSet[r1] = cardSet[r2]; cardSet[r2] = tmp;}
+				for (let y = 0; y < 4; y ++) {
+					cards[y] = [];
+					for (let x = 0; x < 4; x ++) {
+						cards[y][ x] = cardSet[y * 4 + x];
+					}
+				}
+			}
+			let px = null;
+			let py = null;
+			let ccnt = 0;
+			function turn(ay, ax) {
+				let current = cards[ay][ax];
+				let card = document.getElementById(ay + '_' + ax);
+				card.innerHTML = current[0] + current[1];
+				card.disabled = true;
+				ccnt ++;
+				if (px == null) {
+					px = ax;
+				} else { let previous = cards[py][px];
+					setTimeout(
+						function(){
+							if (previous[1] == current[1]) {
+								alert('あたり！');
+							} else { alert('はずれ…');
+							let pcard = document.getElementById(py + '_' + px);
+							pcard.innerHTML = '？';
+							pcard.disabled = false;
+							card.innerHTML = '？';
+							card.disabled = false;
+							ccnt -= 2;
+						}
+						px = null;
+						py = null;
+						if (ccnt >= 16) {
+							complete();
+						}
+					}, 50 );
+				}
+			}
+
+			function complete() {
+				alert(' ゲーム クリア！');
+			}
+
+
+
+</script>
+</head>
+<body onload="init()">
+
+<div id="container">
+	<div id="itemA"><button id="0_0" type="button" onclik="turn(0, 0)">?</button></div>
+	<div id="itemB"><button id="0_1" type="button" onclik="turn(0, 1)">?</button></div>
+	<div id="itemC"><button id="0_2" type="button" onclik="turn(0, 2)">?</button></div>
+	<div id="itemD"><button id="0_3" type="button" onclik="turn(0, 3)">?</button></div>
+	<div id="itemE"><button id="1_0" type="button" onclik="turn(1, 0)">?</button></div>
+	<div id="itemF"><button id="1_1" type="button" onclik="turn(1, 1)">?</button></div>
+	<div id="itemG"><button id="1_2" type="button" onclik="turn(1, 2)">?</button></div>
+	<div id="itemH"><button id="1_3" type="button" onclik="turn(1, 3)">?</button></div>
+	<div id="itemI"><button id="2_0" type="button" onclik="turn(2, 0)">?</button></div>
+	<div id="itemJ"><button id="2_1" type="button" onclik="turn(2, 1)">?</button></div>
+	<div id="itemK"><button id="2_2" type="button" onclik="turn(2, 2)">?</button></div>
+	<div id="itemL"><button id="2_3" type="button" onclik="turn(2, 3)">?</button></div>
+	<div id="itemM"><button id="3_0" type="button" onclik="turn(3, 0)">?</button></div>
+	<div id="itemN"><button id="3_1" type="button" onclik="turn(3, 1)">?</button></div>
+	<div id="itemO"><button id="3_2" type="button" onclik="turn(3, 2)">?</button></div>
+	<div id="itemP"><button id="3_3" type="button" onclik="turn(3, 3)">?</button></div>
+</div>
+
+</body>
+</html>
