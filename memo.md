@@ -33,9 +33,13 @@ let hoge = 'ハローワールド！';
 
 ### 主なデータ型
 
-|Title|Type|Description|
+
+
+
+|分類|データ型|概要|
 |:---|:---|:---|
 |table|string|テーブルを表示したい|
+      |string|テーブルを表示したい|
 
 
 ・if文
