@@ -28,7 +28,6 @@ let hoge = 'ハローワールド！';
 ***！let命令は同名の変数を許可しないので注意***
 *****
 
-
 ## データ型
 
 ### 主なデータ型
@@ -45,7 +44,6 @@ let hoge = 'ハローワールド！';
 ||関数(function)|一連の処理(手続き)の集合|
 
 ### リテラル
-
 #### 数値リテラル
 数字
 
@@ -68,11 +66,9 @@ console.log(data[0]); // htmlの呼び出し
 console.log(data[1]); // css
 console.log(data[2]); // javascript
 ```
-
+- - -
 ### 制御構文
-
 #### if文
-
 **構文 if命令**
 ```javascript:title
 if(条件式){
@@ -81,8 +77,8 @@ if(条件式){
   条件式がfalseの場合に実行する命令
 }
 ```
+記述例)
 ```javascript:title
-例)
 let x = 15;
 if(x >= 10){
   console.log('変数xは10以上です。');
@@ -93,7 +89,6 @@ if(x >= 10){
 変数xが10以上のときだけ処理を実行したい場合は
 elesを省略できる。
 ```
-
 **構文 else if命令**
 ```javascript:title
 if(条件式1){
@@ -104,27 +99,110 @@ if(条件式1){
   全ての条件式がfalseの場合に実行する命令
 }
 ```
+記述例1)
+```javascript:title
+let x = 30;
+if(x >= 20){
+  console.log('変数xは20以上です。');
+} else if(x >= 10) {
+  console.log('変数xは10以上です。');
+} else {
+  console.log('変数xは10未満です。');
+} // 結果：変数は20以上です。
+```
+記述例2)
+```javascript:title
+let x = 30;
+if(x >= 10){
+  if(x >= 20){
+    consle.log('変数xは20以上です。');
+  } else {
+    console.log('変数xは10以上20未満です。');
+  } else {
+  console.log('変数xは10未満です。');
+} // 結果：変数は20以上です。
+```
+制御命令を入れ子にすることもできる
+ただ、深すぎる構造は避けるべき。
 
-・for文
-
-  for(let i = 0; i < 5; i++){
-    処理を繰り返す
-  }
-
-・will文
-
-  will(){
-    case1:
-    処理
+- - -
+#### switch命令
+**構文 switch命令**
+```javascript:title
+switch(式){
+  case 値1:
+    「式 = 値1」である場合に実行される命令(群)
+  break;
+  case 値2:
+    「式 = 値2」である場合に実行される命令(群)
+  break;
+  default:
+    式の値が全ての値に合致しない場合に実行される命令(群)
+  break;
+}
+```
+記述例1)
+```javascript:title
+switch(rank){
+  case 'A':
+    console.log('Aランクです。');
     break;
-    case2:
-    処理
+  case 'B':
+    console.log('Bランクです。');
     break;
-  }
+  case 'C':
+    console.log('Cランクです。');
+    break;
+  default:
+    console.log('ランク外です。');
+    braek;
+} // 結果：Bランクです。
+```
+記述例2)
+```javascript:title
+let rank = 'B';
+switch(rank){
+  case 'A':
+  case 'B':
+  case 'C':
+    console.log('合格です。');
+    break;
+  default:
+    console.log('不合格...');
+    braek;
+} // 結果：合格です。
+```
+- - -
+### 条件式によってループを制御する while / do while
+**構文 while命令**  
 
-・
+while : 前置判断 → 条件によっては1度もループを実行しない。
+```javascript:title
+while(条件式){
+  条件式がtrueである時に実行される命令(群)
+}
+```
+記述例)
+```javascript:title
+let x = 8;
+while(x < 10){
+  console.log('xの値は' + x);
+  X++;
+}
+```
+**構文 do while命令**  
 
-innerText
-innerHTML
-getElementById
-getElementByClassName
+do while : 高知判断 → 条件に関わらず、最低1回はループを実行。
+```javascript:title
+do {
+  条件がtrueである時に実行される命令(群)
+} while(条件式);
+```
+記述例)
+```javascript:title
+let x = 8;
+do {
+  console.log('xの値は' + x);
+  x++;
+} while(x < 10);
+```
