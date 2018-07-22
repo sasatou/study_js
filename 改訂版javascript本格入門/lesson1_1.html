@@ -6,6 +6,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>ワリカンプログラム</title>
 	<script>
+	let i = 1;
+	try{
+	  i = i * J; //例外発生
+	} catch(e){
+	  console.log(e.message);
+	} finally {
+	  console.log('処理は完了しました。');
+	}
 	</script>
 	<style>
 	input{
@@ -15,10 +23,9 @@
 	</style>
 </head>
 <body>
-	<p>人数:<input type="text" id="number" size="2">人</p>
-	<p>金額:<input type="text" id="bill" size="6">円</p>
-	<input type="button" name="" value="計算" onclick="calculate()">
-	<p id="kekka"></p>
-	
+<br/>
+<br/>
+<br/>
+<br/>
 </body>
 </html>

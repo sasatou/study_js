@@ -32,16 +32,16 @@ let hoge = 'ハローワールド！';
 
 ### 主なデータ型
 
-|分類|データ型|概要|
-|:---|:---|:---|
-|基本|数値型(number)|テーブルを表示したい|
-||文字列型(string)|シングル/ダブルクォートで囲まれた０個以上の文字の集合|
-||真偽型(boolean)|true(真)/false(擬)|
-||シンボル型(symbol)|シンボル|
-||特殊型(null/undefined)|値が空、未定義であることを表す|
-|参照型|配列(array)|データの集合（各要素にはインデックス番号でアクセス可能）|
-||オブジェクト(object)|データの集合(各要素には名前でアクセス可能)|
-||関数(function)|一連の処理(手続き)の集合|
+|分類 |データ型               |概要                                             |
+|:---|:---------------------|:-----------------------------------------------|
+|基本 |数値型(number)         |テーブルを表示したい                               |
+|　　 |文字列型(string)       |シングル/ダブルクォートで囲まれた０個以上の文字の集合    |
+|　　 |真偽型(boolean)        |true(真)/false(擬)                              |
+|　　 |シンボル型(symbol)      |シンボル                                         |
+|　　 |特殊型(null/undefined) |値が空、未定義であることを表す                       |
+|参照型|配列(array)           |データの集合（各要素にはインデックス番号でアクセス可能） |
+|　　 |オブジェクト(object)    |データの集合(各要素には名前でアクセス可能)            |
+|　　 |関数(function)         |一連の処理(手続き)の集合                           |
 
 ### リテラル
 #### 数値リテラル
@@ -191,7 +191,6 @@ while(x < 10){
 }
 ```
 **構文 do while命令**  
-
 do while : 高知判断 → 条件に関わらず、最低1回はループを実行。
 ```javascript:title
 do {
@@ -206,3 +205,160 @@ do {
   x++;
 } while(x < 10);
 ```
+**構文 for命令**
+```javascript:title
+for(初期化式; ループ継続条件; 増減式){
+  ループ内で実行する命令(群)
+}
+```
+記述例)
+```javascript:title
+for(let x = 8; x < 10; x++){
+  console.log('xの値は' + x);
+}
+```
+##### カンマ演算子
+記述例)
+```javascript:title
+for(let x = 1, y = 1; x < 5; x++, y++){
+  console.log('x * jは' + x * j);
+}
+結果： x * jは1
+      x * jは4
+      x * jは9
+      x * jは16
+```
+- - -
+### 連想配列の要素を順に処理する for in命令
+**構文 for in命令**
+```javascript:title
+let 変数 = {データ1, データ2, データ3}
+for(仮変数 in 連想配列){
+  ループ内で実行する命令(群)
+}
+```
+記述例1)
+```javascript:title
+let data = {apple:150, orange:100, banana:120};//これ正しいのか？
+for(let key in data){
+  console.log(key + '=' + data[key]);
+}
+結果 : apple=150
+      orange=100
+      banana=120
+```
+記述例2)
+```javascript:title
+let data = ['apple', 'orange', 'banana'];
+for(let key in data){
+  console.log(data[key]);
+}
+結果 : 「apple」「orange」「banana」を順に出力
+```
+記述例3)
+```javascript:title
+let data = ['apple', 'orange', 'banana'];
+for (let i = 0, len = data.length; i < len i++){
+  console.log(data[i]);
+}
+```
+memo
+```javascript:title
+for (let i = 0; i < date.length; i++){...}
+```
+この書き方だとループ都度にプロパティにアクセスしているのであまり良くないらしい。
+
+### 配列などを順に処理する for of命令
+**構文 for of命令**
+```javascript:title
+for(仮変数 of 列挙可能なオブジェクト){
+  ループ内で実行する命令(群)
+}
+```
+記述例1)
+```javascript:title
+let data = ['apple', 'orange', 'banana'];
+for (let value of data){
+  console.log(value);
+}
+```
+### ループを途中でスキップ/中断する break/continue命令
+★特定の条件を満たした場合に、ループを強制的に中断したい
+```javascript:title
+let result = 0;
+for (let i = 1; i <= 100; i++){
+  result += i;
+  if (result > 1000){break;}
+}
+console.log('合計値が1000を超えるのは' + i);
+```
+★現在のループだけをスキップして、次のループを継続して実行したい
+```javascript:title
+let result = 0;
+for(let i = 0; i < 100; i++){
+  if(i % 2 === 0){continue;}
+  result += i;
+}
+console.log('合計' + result); // 結果: 2500;
+```
+★ネストされたループを一気に脱出する ラベル構文
+```javascript:title
+kuku: // ラベル名
+for (let i = 1; i < 10; i++){
+  for (let j = 1; j < 10; j++){
+    let k = i * j
+    if (k > 30){break kuku}
+    document.write(k + '&nbsp');
+  }
+}
+document.write('<br/>');
+```
+### 例外を処理する  try...catch...finally命令
+**構文 try...catch...finally命令**
+```javascript:title
+try{
+  例外が発生するかもしれない命令(群)
+} catch(例外情報を受け取る変数){
+  例外が発生した時に実行される命令(群)
+} finally {
+  例外の有無に関わらず、最終的に実行される命令(群)
+}
+```
+記述例1)
+```javascript:title
+let i = 1;
+try{
+  i = i * J; //例外発生
+} catch(e){
+  console.log(e.message);
+} finally {
+  console.log('処理は完了しました。');
+}
+```
+**構文 throw命令**
+```javascript:title
+throw new Error(エラーメッセージ)
+```
+
+| オブジェクト     | エラーの原因                       |
+| :------------- | :------------------------------- |
+| EvalError      | 不正なeval関数                     |
+| RangError      | 指定された値が許容範囲を超えている     |
+| ReferenceError | 宣言されていない変数にアクセスした     |
+| SyntaxError    | 文法エラー                         |
+| TypeError      | 指定された値が期待されたデータ型でない  |
+| URIError       | 不正なURI                         |
+
+### Javascriptの危険な構文を禁止する Strictモード(IE9非対応)
+
+| 分類   | Strictモードによる制限                            |
+| :---- | :---------------------------------------------- |
+| 変数   | var命令の省略を禁止                               |
+|       | 将来的に追加予定のキーワードを予約語に追加             |
+|       | 引数 / プロパティ名の重複を禁止                     |
+|       | undefined / nullへの代入を禁止                    |
+| 命令   | with命令の利用を禁止                              |
+|       | arguments.calleeプロパティへのアクセス禁止          |
+|       | eval命令で宣言された変数を、周囲のスコープに拡散しない  |
+| その他 | 関数配下のthisはグローバルオブジェクトを参照しない     |
+|       | 「0〜」の8進数表記は禁止                           |
