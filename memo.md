@@ -33,9 +33,6 @@ let hoge = 'ハローワールド！';
 
 ### 主なデータ型
 
-
-
-
 |分類|データ型|概要|
 |:---|:---|:---|
 |基本|数値型(number)|テーブルを表示したい|
@@ -47,17 +44,66 @@ let hoge = 'ハローワールド！';
 ||オブジェクト(object)|データの集合(各要素には名前でアクセス可能)|
 ||関数(function)|一連の処理(手続き)の集合|
 
+### リテラル
 
-・if文
-  if
-  else
-  else if
+#### 数値リテラル
+数字
 
-  if(条件){
-    実行
-  } else {
-    実行
-  }
+#### 文字列リテラル
+シングルクォート、ダブルクオートで囲まれた文字
+```javascript:title
+'ハローワールド！ javascript'
+"ハローワールド！ javascript"
+```
+
+#### 配列リテラル
+ブラケット[]でくくった複数の値
+```javascript:title
+['html', 'css', 'javascript']
+```
+それぞれのデータにはインデックス番号が振られている。
+```javascript:title
+let data = ['html', 'css', 'javascript'];
+console.log(data[0]); // htmlの呼び出し
+console.log(data[1]); // css
+console.log(data[2]); // javascript
+```
+
+### 制御構文
+
+#### if文
+
+**構文 if命令**
+```javascript:title
+if(条件式){
+  条件式がtrueの場合に実行する命令
+} else {
+  条件式がfalseの場合に実行する命令
+}
+```
+```javascript:title
+例)
+let x = 15;
+if(x >= 10){
+  console.log('変数xは10以上です。');
+} else {
+  console.log(変数xは10未満です。);
+} // 結果：変数xは10以上です。
+
+変数xが10以上のときだけ処理を実行したい場合は
+elesを省略できる。
+```
+
+**構文 else if命令**
+```javascript:title
+if(条件式1){
+  条件式1がtrueの場合に実行する命令
+} else if(条件式2) {
+  条件式2がtrueの場合に実行する命令
+} else {
+  全ての条件式がfalseの場合に実行する命令
+}
+```
 
 ・for文
 
