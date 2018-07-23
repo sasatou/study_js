@@ -1,0 +1,150 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>スライダー</title>
+	<style>
+	* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font: 1rem/1.3 Arial, Helvetica, sans-serif;
+}
+
+h2,
+h5 {
+  text-align: center;
+}
+
+h5 {
+  text-transform: uppercase;
+  color: #aeaeae;
+}
+
+.slider__container {
+  width: 40em;
+  height: 25em;
+  margin: 1.5em auto;
+  overflow: hidden;
+}
+
+.slider img {
+  float: left;
+}
+
+	</style>
+</head>
+<body>
+
+	<div class="slider__container">
+	  <div class="slider" data-js="sslide">
+	    <img src="img01.jpg" />
+	    <img src="img02.jpg" />
+	    <img src="img03.jpg" />
+	    <img src="img04.jpg" />
+	    <img src="img05.jpg" />
+	  </div>
+	</div>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  // sslider = Simple SLIDER
+  function sslider() {
+// 変数currentを初期化
+    var current = 0,
+		// 変数iを宣言
+        i,
+				// data-js="sslide"を返す
+        slider = document.querySelector('[data-js="sslide"]'),
+				// 変数内のimgを全て返す
+        allImages =  slider.querySelectorAll('img'),
+				// イメージ数を取得しその数で100を割り整数で返します。（20）
+        imgWidth = Math.ceil(100 / allImages.length),
+				// イメージ数に100を掛けます。(500)
+        sliderWidth = allImages.length * 100;
+// 変数sliderWidthで取得した数値に%を追加しslidernoのstyleに数値を反映(500%)
+    slider.style.width = sliderWidth + '%';
+// 変数imgWidthで取得した数値に％を足して画像のstyleに数値を反映
+    for(i = 0; i <= allImages.length - 1; i++) {
+       allImages[i].style.width = imgWidth + '%';
+    }
+	// 関数
+  function animateRight(cur) {
+			// 変数iに変数imgWidth（20）を代入
+      var i = imgWidth,
+			// 変数タイムを初期化
+          time = 50;
+			// 一定時間ごとに処理を繰り返す関数
+      var animate = setInterval(function() {
+			//i(20)の数値がsliderWidth(500)以下なら処理を実行
+      if(i <= sliderWidth) {
+				// 全てのイメージのstyleにmargin left - imgWidth(20)%を適応
+        allImages[cur].style.marginLeft = "-" + i + "%";
+				// 20ずつ引いていく
+        i--;
+				// もし、i(20)の数値がsliderWidth(500)以上なら処理を実行
+      } else {
+				// 処理の繰り返しをストップ
+        clearInterval(animate);
+      }
+			// 50ミリ秒ごとに
+      }, time);
+   }
+		// 関数リセット
+    function reset() {
+			//画像数分処理を繰り返す
+      for(i = 0; i <= allImages.length - 1; i++) {
+				// 関数animateRightにiの値を代入
+        animateRight(i);
+      }
+      // resseting the current image to the first image
+			// カレントを初期化
+      current = 0;
+    }
+
+    function animateLeft(cur) {
+			// 変数iに０に置き換え、変数timeを50ミリ秒を設定
+      var i = 0,
+          time = 50;
+			// 一定時間ごとに処理を繰り返す関数
+      var animate = setInterval(function() {
+			//iの数値がimgWidth(20)以下なら処理を実行
+      if(i <= imgWidth) {
+				// 全てのイメージのstyleにmargin left - imgWidth(20)%を適応
+        allImages[cur].style.marginLeft = "-" + i  + "%";
+				// 1ずつ足していく
+        i++;
+      } else {
+				// 処理の繰り返しをストップ
+        clearInterval(animate);
+      }
+			// 50ミリ秒ごとに
+      }, time);
+   }
+
+	 // 一定時間ごとに処理を繰り返す関数
+    setInterval(function () {
+			// currentの値がそう画像数(5) - 2以下であれば実行
+      if(current <= allImages.length - 2) {
+        animateLeft(current);
+				// 1ずつ足していく
+        current++;
+			// currentの値がそう画像数(5) - 2以上であれば実行
+      } else {
+
+        reset();
+      }
+		// 3000ミリ秒ごとに
+    }, 3000);
+} // end
+// 関数ssliderを起動
+ sslider();
+});
+	</script>
+</body>
+</html>
