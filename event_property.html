@@ -1,0 +1,24 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+	<!-- <input type="button" value="クリックしてください。" onclick="console.log('イベント発生');"> -->
+	<input id="btn" type="button" value="クリックしてください。">
+	<script>
+	// // 変数eに取得したidを代入
+	// 	let e = document.getElementById('btn');
+	// 	// #btnを押した場合に処理を実行
+	// 	e.onclick = function(){
+	// 		console.log('イベント発生');
+	// 	}
+	// 変数eに取得したidを代入
+		document.getElementById('btn').onclick =
+		function(){
+			console.log('イベント発生');
+		}
+	</script>
+</body>
+</html>

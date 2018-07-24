@@ -1,0 +1,31 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+<ul id="list"></ul>
+
+<input id="result" type="text">
+
+<input id="btn" type="button" value="追加" onclick="appendElement();">
+
+	<script>
+	// 関数replace
+	function appendElement() {
+		// テキストボックスの要素を取得
+		let result = document.getElementById('result');
+		// 空のli要素を作成
+		let li = document.createElement('li');
+		// 変数textへ変数result(これで言うと＃result)内のvalueを取得して生成
+		let text = document.createTextNode(result.value);
+		// liタグの子に変数text(テキストボックス)から取得したテキストノードを入れる
+		li.appendChild(text);
+		// idがlistのulタグにliを追加。
+		// 具体的には<li>追加文字列</li>が追加される。
+		list.appendChild(li);
+	}
+	</script>
+</body>
+</html>

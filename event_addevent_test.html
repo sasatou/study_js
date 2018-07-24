@@ -1,0 +1,33 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+	<ul id="list">
+	</ul>
+	<input type="text" id="result">
+	<input type="button" id="btn" value="追加">
+	<script>
+	//
+	document.addEventListener('DOMContentLoaded', function(){
+		let e = document.getElementById('btn');
+		e.addEventListener('click', function(){
+			appendElement();
+		});
+	}, false);
+
+	// 関数 appendElement
+	// let appendElement = () => { es6
+	function appendElement() {
+		let result = document.getElementById('result');
+		let li = document.createElement('li');
+		let text = document.createTextNode(result.value);
+		li.appendChild(text);
+		list.appendChild(li);
+	}
+
+	</script>
+</body>
+</html>

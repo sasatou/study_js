@@ -1,0 +1,36 @@
+<!DOCTYPE htmle>
+<html lang="utf-8">
+<head>
+	<meta charset="utf-8">
+	<title>javascrptの学習</title>
+</head>
+<body>
+<ul id="list">
+	<li>要素1</li>
+	<li>要素2</li>
+	<li>要素3</li>
+	<li>要素4</li>
+	<li>要素5</li>
+</ul>
+
+<input type="button" value="削除" onclick="remove();">
+
+	<script>
+	// 関数removeを作成
+	function remove() {
+		// 変数parentElementにulのid listを取得し代入
+		var parentElement = document.getElementById('list');
+		// 変数listsにparentElement(list)内のタグ名を取得して代入
+		var lists = parentElement.getElementsByTagName('li');
+		// 変数removeIndexに削除するインデックス番号を取得し代入
+		// listsのlengthは5でそこから-1引く
+		var removeIndex = lists.length -1;
+		// 変数parentElement内の変数listsの
+		// 変数removeIndexをremoveChildで削除
+		// removeが呼ばれるたびに−１されていくので下から消される。
+		parentElement.removeChild(lists[removeIndex]);
+	}
+	
+	</script>
+</body>
+</html>

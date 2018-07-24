@@ -49,3 +49,13 @@ if文、for文などの種類がある。
 
 ★戻り値
 　なんらかの関数が返却する結果を戻り値という。
+
+イベント、イベントハンドラ
+
+
+DOMContentLoaded
+addEventListener
+click
+createTextNode
+createElement
+appendChild
