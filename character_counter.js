@@ -3,11 +3,11 @@
 
   // id input_textのエレメントを取得
   let e = document.getElementById('input_text');
+  // 初期値をセット 入力制限が10文字なので10を設定
+  document.getElementById('character_count').innerHTML = '10';
 
   // keyupのイベント発生時に、入力文字数をコンソールに出力
   e.addEventListener('keyup', function () {
-    // console.log(e.value);
-    // console.log(e.value.length);
     // テキストエリアの文字列を変数に代入
     let str = e.value;
 
@@ -15,16 +15,17 @@
     str = str.replace(/\r?\n/g, '');
 
     // 文字数の表示
-    // console.log(str.length);
-    // spanのid character_countを取得しタグ内に変数strで取得した結果の文字数を表示
-    document.getElementById('character_count').innerHTML = str.length;
+    // 入力最大文字数10から変数strで取得した結果の文字数を引く
+    let remaining = 10 - str.length;
+    // spanのid character_countを取得しタグ内に変数remainingで取得した結果の文字数を表示
+    document.getElementById('character_count').innerHTML = remaining;
 
     // 文字数を超えた場合の処理
-    // 文字数が10以下だった場合は
-    if (str.length <= 10) {
+    // 文字数が0以上だった場合は
+    if (remaining >= 0) {
       // pタグのid character_count_wrapを取得しスタイル カラー 黒を指定
       document.getElementById('character_count_wrap').style.color = 'black';
-      // 10以上だった場合は
+      // それ以外だった場合は
     } else {
       // pタグのid character_count_wrapを取得しスタイル カラー を指定
       document.getElementById('character_count_wrap').style.color = 'red';
