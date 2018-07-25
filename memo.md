@@ -3,9 +3,9 @@
 ## 1 変数、定数
 ***
 ### 1.1 変数を宣言する
-* var
-* let(ES6)
-* const(ES6)
+* var        ・・・
+* let(ES6)   ・・・ 「再宣言」が不可
+* const(ES6) ・・・ 定数「再宣言」も「再代入」も不可
 
 **構文**
 ```javascript:title
@@ -19,6 +19,27 @@ let hoge;
 カンマで区切って複数宣言
 ```javascript:title
 let hoge, hoge2;
+```
+コンストは主に定数用？
+```javascript:title
+const tax_rate = 0.08;
+```
+
+```javascript:title
+/ var
+var i = 10; // 宣言OK
+i = 11; // 再代入OK
+var i = 12; // 再宣言OK(エラーとならない)
+
+// let
+let j = 10; // 宣言 OK
+j = 11; // 再代入 OK
+let j = 12; // 再宣言 NG(エラー)
+
+// const
+const tax_rate = 0.08; // 定数の宣言 OK
+tax_rate = 0.1; // 再代入 NG(エラー)
+const tax_rate = 0.2; //再宣言 NG(エラー)
 ```
 ***
 ### 1.2 定数を宣言する
@@ -457,3 +478,33 @@ let 変数名 = new オブジェクト名([引数,...])
 ```
 
 ## メモ 状況がわかったら まとめ始める
+
+イベント・イベントハンドラ
+
+プロパティを使って関連付ける方法
+構文
+オブジェクト名.onイベント名 = function() {
+  イベントハンドラ
+};
+
+
+アロー関数
+
+構文
+(引数, ・・・) => {
+  関数の本体
+}
+
+クラス
+構文
+class クラス名 {
+  // クラスの内容
+}
+
+シンボル
+構文
+Symbol([description])
+
+description:シンボルの名前
+
+分割代入
