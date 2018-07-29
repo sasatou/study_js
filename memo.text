@@ -59,3 +59,12 @@ click
 createTextNode
 createElement
 appendChild
+
+setIntervalメソッド
+ -> 一定時間特定の処理を繰り返す。
+
+setTimeoutメソッド
+ -> 一定時間に繰り返しの処理を行う。
+
+clearTimeoutメソッド
+ -> setTimeoutの呼び出しを解除する。
