@@ -47,6 +47,8 @@ if文、for文などの種類がある。
 正規表現
 
 
+
+
 ★戻り値
 　なんらかの関数が返却する結果を戻り値という。
 
@@ -68,3 +70,47 @@ setTimeoutメソッド
 
 clearTimeoutメソッド
  -> setTimeoutの呼び出しを解除する。
+
+
+indexOf() メソッドは、呼び出す String オブジェクト中で、
+fromIndex から検索を始め、指定された値が最初に現れたインデックスを返します。
+値が見つからない場合は -1 を返します。
+
+処理を止める時は
+return
+
+domの操作方法について考える。
+
+ <body>
+     <h1>見出し</h1>
+     <p id="msg">こんにちは！</p>
+     <script>
+         var e = document.getElementById('msg');
+         e.textContent = 'hello!';
+         e.style.color = 'red';
+         e.className = 'myStyle';
+
+         /*
+             body
+                 p
+                     text
+         */
+         var greet = document.createElement('p'),
+             text = document.createTextNode('hello world');
+         document.body.appendChild(greet).appendChild(text);
+
+     </script>
+ </body>
+
+addEventListenerでclassが制御できない理由
+
+https://naruhodo.repop.jp/javascript-addeventlistener-on-class/
+
+参考にいいかも
+https://naruhodo.repop.jp/category/javascript/
+
+フロントエンドに必要なjavascript
+https://github.com/takahashiakira/tech_for_web/wiki/%E3%81%93%E3%82%8C%E3%81%A0%E3%81%91%E8%A6%9A%E3%81%88%E3%82%8B%E3%81%B9%E3%81%8DJS%E3%81%AE%E5%9F%BA%E7%A4%8E
+
+jquery使うってなったら
+https://github.com/takahashiakira/tech_for_web/wiki/%E7%8F%BE%E5%A0%B4%E3%81%A7%E4%BD%BF%E3%81%86jQuery
