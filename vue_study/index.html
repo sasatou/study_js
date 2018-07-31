@@ -12,31 +12,47 @@
 <!-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 メモ
  -> v- からはじまる特殊な属性をディレクティブと呼ぶ
+  v-on 結果を返すディレクティブ
+   (v-on:submit -> @submit(@clickとかとか)で省略できる)
+
+  v-for
+  v-show
+  v-bind (v-bind:class -> :で省略できる)
+  v-if、v-else
+   注意:v-forと一緒に使うと、v-forの方が先に動く
 
 ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
 
 
 <div id="app" class="container">
-  <!-- <p>hallo {{ name }}!</p> -->
-  <!-- jsが書ける たとえば大文字に変更 -->
-  <!-- <p>hallo {{ name.toUpperCase() }}!</p>
-  <p><input type="text" v-model='name' name="" id=""></p> -->
   <h1>My Todos</h1>
-<ul>
-  <!-- <li>{{ todos[0] }}</li>
-  <li>{{ todos[1] }}</li>
-  <li>{{ todos[2] }}</li> -->
-  <!-- 配列をループß -->
+<!-- <ul>
   <li v-for="(todo, index) in todos">
     <input type="checkbox" v-model="todo.isDone">
-    <!-- <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span> -->
     <span :class="{done: todo.isDone}">{{ todo.title }}</span>
     <span class="command" @click="deleteItem(index)">[x]</span>
   </li>
   <li v-show="!todos.length">天才かっ！？</li>
+</ul> -->
+
+<!-- <ul>
+  <li v-if="todos.length" v-for="(todo, index) in todos">
+    <input type="checkbox" v-model="todo.isDone">
+    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+    <span class="command" @click="deleteItem(index)">[x]</span>
+  </li>
+  <li v-else>天才かっ！？</li>
+</ul> -->
+<ul v-if="todos.length">
+  <li v-for="(todo, index) in todos">
+    <input type="checkbox" v-model="todo.isDone">
+    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+    <span class="command" @click="deleteItem(index)">[x]</span>
+  </li>
 </ul>
-<!-- 結果を返すディレクティブ v-on -->
-<!-- <form v-on:submit="addItem">  以下のように省略できる-->
+<ul v-else>
+  <li>天才かっ！？</li>
+</ul>
   <form @submit.prevent="addItem">
     <input type="text" v-model="newItem">
     <input type="submit" name="" value="add">
