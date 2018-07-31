@@ -92,7 +92,7 @@ domの操作方法について考える。
 
          /*
              body
-                 p
+                 p
                      text
          */
          var greet = document.createElement('p'),
@@ -111,6 +111,5 @@ https://naruhodo.repop.jp/category/javascript/
 
 フロントエンドに必要なjavascript
 https://github.com/takahashiakira/tech_for_web/wiki/%E3%81%93%E3%82%8C%E3%81%A0%E3%81%91%E8%A6%9A%E3%81%88%E3%82%8B%E3%81%B9%E3%81%8DJS%E3%81%AE%E5%9F%BA%E7%A4%8E
-
 jquery使うってなったら
 https://github.com/takahashiakira/tech_for_web/wiki/%E7%8F%BE%E5%A0%B4%E3%81%A7%E4%BD%BF%E3%81%86jQuery
