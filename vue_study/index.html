@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Vue App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+メモ
+ -> v- からはじまる特殊な属性をディレクティブと呼ぶ
+
+▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
+
+
+<div id="app" class="container">
+  <!-- <p>hallo {{ name }}!</p> -->
+  <!-- jsが書ける たとえば大文字に変更 -->
+  <!-- <p>hallo {{ name.toUpperCase() }}!</p>
+  <p><input type="text" v-model='name' name="" id=""></p> -->
+  <h1>My Todos</h1>
+<ul>
+  <!-- <li>{{ todos[0] }}</li>
+  <li>{{ todos[1] }}</li>
+  <li>{{ todos[2] }}</li> -->
+  <!-- 配列をループß -->
+  <li v-for="(todo, index) in todos">
+    <input type="checkbox" v-model="todo.isDone">
+    <!-- <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span> -->
+    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+    <span class="command" @click="deleteItem(index)">[x]</span>
+  </li>
+  <li v-show="!todos.length">天才かっ！？</li>
+</ul>
+<!-- 結果を返すディレクティブ v-on -->
+<!-- <form v-on:submit="addItem">  以下のように省略できる-->
+  <form @submit.prevent="addItem">
+    <input type="text" v-model="newItem">
+    <input type="submit" name="" value="add">
+  </form>
+</div>
+
+<div class="wrap">
+  <i class="fa fa-bars" id="show"></i>
+  <h1>HELLO</h1>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+
+<div id="cover"></div>
+
+<div id="menu">
+  <i class="fa fa-times" id="hide"></i>
+  <ul>
+    <li>MENU</li>
+    <li>MENU</li>
+    <li>MENU</li>
+    <li>MENU</li>
+    <li>MENU</li>
+  </ul>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
