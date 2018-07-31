@@ -7,8 +7,9 @@
   <title>My Vue App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
   <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/reboot.css"> -->
 </head>
-<body>
+<body id="">
 <!-- ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 メモ
  -> v- からはじまる特殊な属性をディレクティブと呼ぶ
@@ -21,54 +22,48 @@
   v-if、v-else
    注意:v-forと一緒に使うと、v-forの方が先に動く
 
+   !todo.isDone
+    「！」はfalseの場合
+
+    算出プロパティ（computed）
+     -> いまいち理解できないので
+        調べておく
+
+    watch
+    -> 監視
+       -> handler
+         -> deep: true
+            -> 調べる
+
 ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ -->
 
 
-<div id="app" class="container">
-  <h1>My Todos</h1>
-<!-- <ul>
-  <li v-for="(todo, index) in todos">
-    <input type="checkbox" v-model="todo.isDone">
-    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-    <span class="command" @click="deleteItem(index)">[x]</span>
-  </li>
-  <li v-show="!todos.length">天才かっ！？</li>
-</ul> -->
-
-<!-- <ul>
-  <li v-if="todos.length" v-for="(todo, index) in todos">
-    <input type="checkbox" v-model="todo.isDone">
-    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-    <span class="command" @click="deleteItem(index)">[x]</span>
-  </li>
-  <li v-else>天才かっ！？</li>
-</ul> -->
-<ul v-if="todos.length">
-  <li v-for="(todo, index) in todos">
-    <input type="checkbox" v-model="todo.isDone">
-    <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-    <span class="command" @click="deleteItem(index)">[x]</span>
-  </li>
-</ul>
-<ul v-else>
-  <li>天才かっ！？</li>
-</ul>
-  <form @submit.prevent="addItem">
-    <input type="text" v-model="newItem">
-    <input type="submit" name="" value="add">
-  </form>
-</div>
-
 <div class="wrap">
   <i class="fa fa-bars" id="show"></i>
-  <h1>HELLO</h1>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
-  <p>Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World. Hello World.</p>
+
+  <!-- todo -->
+  <div id="app" class="container">
+    <h1>
+      <button @click="purge" type="button" name="button">Purge</button>
+      My Todos
+      <span class="info">({{ remaining.length }} / {{ todos.length }})</span>
+    </h1>
+  <ul v-if="todos.length">
+    <li v-for="(todo, index) in todos">
+      <input type="checkbox" v-model="todo.isDone">
+      <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+      <span class="command" @click="deleteItem(index)">[x]</span>
+    </li>
+  </ul>
+  <ul v-else>
+    <li>天才かっ！？</li>
+  </ul>
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="newItem">
+      <input type="submit" name="" value="add">
+    </form>
+  </div>
+
 
 <div id="cover"></div>
 
@@ -82,6 +77,7 @@
     <li>MENU</li>
   </ul>
 </div>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="js/main.js"></script>

@@ -28,12 +28,22 @@
         isDone: true
       }]
     },
+    watch: {
+      todos: {
+        // この書き方だとtodosの中身までは監視してくれない
+        // titleとかisDoneとか
+        // todos: function() {
+        //   localStorage.setItem('todos', JSON.stringify(this.todos));
+        //   alert('Data saved!');
+        // }
+        handler: function() {
+          localStorage.setItem('todos', JSON.stringify(this.todos));
+            alert('Data saved!');
+        },
+        deep: true
+      }
+    },
     methods: {
-      // これでもいいけど
-      // addItem: function(e) {
-      //   e.preventDefault();
-      //   this.toods.push(this.newItem);
-      // }
       addItem: function() {
         var item = {
           title: this.newItem,
@@ -46,19 +56,41 @@
         if (confirm('are you sure?')) {
           this.todos.splice(index, 1);
         }
+      },
+      // 全ての完了タスクを削除する
+      purge: function() {
+        if (!confirm('delete finished?')) {
+          return;
+        }
+        // this.todos = this.todos.filter(function(todo) {
+        //   return !todo.isDone;
+        // });
+        this.todos = this.remaining;
+      }
+    },
+    // 終了済みタスクをカウントする
+    computed: {
+      remaining: function() {
+        // var items = this.todos.filter(function(todo) {
+        //   return !todo.isDone;
+        // });
+        // return items.length;
+        return this.todos.filter(function(todo) {
+          return !todo.isDone;
+        });
       }
     }
   });
 
-  // var hide = document.getElementById('hide');
-  // var show = document.getElementById('show');
-  //
-  // show.addEventListener('click', function() {
-  //   document.body.className = 'menu-open';
-  // });
-  //
-  // hide.addEventListener('click', function() {
-  //   document.body.className = '';
-  // });
+  var hide = document.getElementById('hide');
+  var show = document.getElementById('show');
+
+  show.addEventListener('click', function() {
+    document.body.className = 'menu-open';
+  });
+
+  hide.addEventListener('click', function() {
+    document.body.className = '';
+  });
 
 })();
