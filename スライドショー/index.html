@@ -4,39 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <title>キャラ診断アプリ</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>スライドショー</title>
 </head>
 <body>
+  <div id="container">
+    <div class="main">
+      <i id="prev" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+      <img id="target" src="img/food0.jpg" width="300" height="200">
+      <i id="next" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+    </div>
 
-  <div class="stage">
-      <div id="cards">
-        <div class="card">
-          <div class="left-side">
-            <img src="img/unknown.gif" alt="" width="160" height="210">
-          </div>
-          <div class="right-side">
-            <h1><img src="img/logo.png" alt="" width="190" height="60"></h1>
-            <input type="text" id="user_name" placeholder="名前を教えてください">
-            <div id="check" class="btn">診断する？</div>
-          </div>
-        </div>
-        <div class="card">
-          <div id="result_img" class="left-side">
-            <img src="img/unknown.gif" alt="">
-          </div>
-          <div class="right-side">
-            <p>
-              <span id="result_name">名前</span>さんは...<br>
-              <span id="result_msg">メッセージ</span>...
-              <span id="result_job">職業</span>...!!!<br>
-              <span id="result_type">属性</span>...!!!
-            </p>
-            <a href="" id="tweet" class="btn" target="_blank">結果をツイートする！</a>
-            <p id="retry">もう一度診断する。</p>
-          </div>
-        </div>
+    <nav>
+      <ul id="thumbnails">
+        <!-- <li class="current"><img src="img/food0.jpg" width="45" height="30" alt=""></li>
+        <li><img src="img/food1.jpg" width="45" height="30" alt=""></li>
+        <li><img src="img/food2.jpg" width="45" height="30" alt=""></li>
+        <li><img src="img/food3.jpg" width="45" height="30" alt=""></li> -->
+      </ul>
+
+      <div id="play">
+        <i class="fa fa-play" aria-hidden="true"></i> 再生
       </div>
+
+      <div id="pause" class="hidden">
+        <i class="fa fa-pause" aria-hidden="true"></i> 停止
+      </div>
+    </nav>
+
   </div>
 <script src="main.js"></script>
 </body>

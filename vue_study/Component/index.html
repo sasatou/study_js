@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Vue App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/reboot.css"> -->
+</head>
+<body>
+<div id="wrap">
+  <div id="app">
+    <!-- 独自タグ -->
+    <p>Total Likes: {{ total }}</p>
+    <like-component @inctement="inctementTotal"></like-component>
+    <!-- <like-component message="天才か！？" v-on:inctement="inctementTotal"></like-component> -->
+    <like-component message="天才か！？" @inctement="inctementTotal"></like-component>
+    <like-component message="Awesome" @inctement="inctementTotal"></like-component>
+    <like-component message="Great" @inctement="inctementTotal"></like-component>
+  </div>
+
+  <div id="pg">
+    <com-paragraph></com-paragraph>
+    <com-paragraph></com-paragraph>
+    <com-paragraph></com-paragraph>
+    <com-paragraph></com-paragraph>
+  </div>
+
+  <pre>
+  <code>
+    &lt;div id="pg"&gt;
+      &lt;com-paragraph&gt;&lt;/com-paragraph&gt;
+      &lt;com-paragraph&gt;&lt;/com-paragraph&gt;
+      &lt;com-paragraph&gt;&lt;/com-paragraph&gt;
+      &lt;com-paragraph&gt;&lt;/com-paragraph&gt;
+    &lt;/div&gt;
+  </code>
+  </pre>
+
+  <div id="icons">
+    <p><vue-icon></vue-icon>vue.js</p>
+    <p><vue-icon></vue-icon>びゅーじぇいえす</p>
+    <p><vue-icon></vue-icon>び<vue-icon></vue-icon>ゅ<vue-icon></vue-icon>ー</p>
+  </div>
+
+  <pre>
+  <code>
+    &lt;div id="icons"&gt;
+      &lt;p&gt;&lt;vue-icon&gt;&lt;/vue-icon&gt;vue.js&lt;/p&gt;
+      &lt;p&gt;&lt;vue-icon&gt;&lt;/vue-icon&gt;びゅーじぇいえす&lt;/p&gt;
+      &lt;p&gt;&lt;vue-icon&gt;&lt;/vue-icon&gt;び&lt;vue-icon&gt;&lt;/vue-icon&gt;ゅ&lt;vue-icon&gt;&lt;/vue-icon&gt;ー&lt;/p&gt;
+    &lt;/div&gt;
+  </code>
+  </pre>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

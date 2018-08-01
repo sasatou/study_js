@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body {
+font-size: 16px;
+font-family: Verdana, sans-serif;
+}
+
+.vueIcon{
+  vertical-align: text-bottom;
+}

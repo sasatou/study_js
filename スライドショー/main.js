@@ -1,82 +1,92 @@
 (function() {
   'use strict';
 
-  var cards = document.getElementById('cards');
-  var check = document.getElementById('check');
-  var retry = document.getElementById('retry');
-  var userName = document.getElementById('user_name');
-  user_name.focus();
+  var files = [
+    'img/food0.jpg',
+    'img/food1.jpg',
+    'img/food2.jpg',
+    'img/food3.jpg'
+  ];
 
-  check.addEventListener('click', function() {
-    var msgs = [
-      '究極の進化を遂げた',
-      '太古より蘇った',
-      '最も恐れられた'
-    ];
-    var jobs = [
-      {name: '勇者', img: 'hero.gif'},
-      {name: '魔法使い', img: 'wizard.gif'},
-      {name: '武闘家', img: 'fighter.gif'}
-    ];
-    var types = [
-      {name: 'その炎はすべてを焼き尽くす', img: 'bg-fire'},
-      {name: 'その清水ですべてを浄化する', img: 'bg-water'},
-      {name: 'その雷撃は万物の怒りを鎮める', img: 'bg-thunder'}
-    ];
+  var currentNum = 0;
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var target = document.getElementById('target');
+  var thumbnails = document.getElementById('thumbnails');
+  var play = document.getElementById('play');
+  var pause = document.getElementById('pause');
+  // イベントが発火したかを管理
+  var isRunning = false;
+  // setTimeoutの戻り値を入れる変数。
+  var timer;
 
-    var msg;
-    var job;
-    var type;
-
-    var resultImg = document.getElementById('result_img');
-    var tweet = document.getElementById('tweet');
-    var tweetUrl;
-
-    function getRandomElement(array) {
-      return array[Math.floor(Math.random() * array.length)];
+  function createThumbnails() {
+    var i;
+    var li;
+    var img;
+    for (i = 0; i < files.length; i++) {
+      li = document.createElement('li');
+      // 指定した要素上に新しい属性を追加
+      li.setAttribute('data-index', i);
+      li.addEventListener('click', function() {
+        target.src = this.children[0].src;
+        thumbnails.children[currentNum].className = '';
+        currentNum = this.dataset.index;
+        this.className = 'current';
+      });
+      img = document.createElement('img');
+      img.src = files[i];
+      li.appendChild(img);
+      thumbnails.appendChild(li);
     }
+  }
 
-    function setTextContent(id, text) {
-      document.getElementById(id).textContent = text;
+  function playSlideshow() {
+    // 戻り値を入れた
+    timer = setTimeout(function() {
+      next.click();
+      playSlideshow();
+    }, 1500);
+  }
+
+  createThumbnails();
+
+  thumbnails.children[currentNum].className = 'current';
+
+  prev.addEventListener('click', function(){
+    thumbnails.children[currentNum].className = '';
+    currentNum--;
+    if (currentNum < 0) {
+      currentNum = files.length -1;
     }
-
-    if (userName.value === '' || userName.value.length > 10) {
-      userName.value = '名無し';
-    }
-
-    msg = getRandomElement(msgs);
-    job = getRandomElement(jobs);
-    type = getRandomElement(types);
-
-    // https://twitter.com/intent/tweet
-    // ツイッターにテキストを仕込みたい場合は
-    // ?text= + encodeURIComponent()
-    tweetUrl =
-      'https://twitter.com/intent/tweet?text=' +
-      encodeURIComponent(
-        userName.value + 'さんは' +
-        msg +
-        job.name + 'でした！'
-      ) +
-      '&hashtags=jstest'; // ハッシュタグ
-
-    setTextContent('result_name', userName.value);
-    setTextContent('result_msg', msg);
-    setTextContent('result_job', job.name);
-    resultImg.children[0].src = 'img/' + job.img;
-    setTextContent('result_type', type.name);
-    resultImg.className = 'left-side ' + type.img;
-    tweet.href = tweetUrl;
-
-    cards.className = 'move';
+    target.src = files[currentNum];
+    thumbnails.children[currentNum].className = 'current';
   });
 
+  next.addEventListener('click', function(){
+    thumbnails.children[currentNum].className = '';
+    currentNum++;
+    if (currentNum > files.length -1) {
+      currentNum = 0;
+    }
+    target.src = files[currentNum];
+    thumbnails.children[currentNum].className = 'current';
+  });
 
+  play.addEventListener('click', function() {
+    if (isRunning === true) {
+      return;
+    }
+    isRunning = true;
+    playSlideshow();
+    this.className = 'hidden';
+    pause.className = '';
+  });
 
-  retry.addEventListener('click', function() {
-    cards.className = '';
-    userName.value = '';
-    user_name.focus();
+  pause.addEventListener('click', function() {
+      clearTimeout(timer);
+      this.className = 'hidden';
+      play.className = '';
   });
 
 })();
