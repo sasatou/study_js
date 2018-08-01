@@ -15,10 +15,14 @@
   var thumbnails = document.getElementById('thumbnails');
   var play = document.getElementById('play');
   var pause = document.getElementById('pause');
-  // イベントが発火したかを管理
-  var isRunning = false;
   // setTimeoutの戻り値を入れる変数。
   var timer;
+
+  var SLIDESHOW_DURATION = 1500;
+
+  var CLASS_CURRENT = 'current';
+  var CLASS_HIDDEN = 'hidden';
+  var CLASS_NONE = '';
 
   function createThumbnails() {
     var i;
@@ -27,12 +31,13 @@
     for (i = 0; i < files.length; i++) {
       li = document.createElement('li');
       // 指定した要素上に新しい属性を追加
-      li.setAttribute('data-index', i);
+      // li.setAttribute('data-index', i);
+      li.dataset.index = i;
       li.addEventListener('click', function() {
         target.src = this.children[0].src;
         thumbnails.children[currentNum].className = '';
         currentNum = this.dataset.index;
-        this.className = 'current';
+        this.className = CLASS_CURRENT;
       });
       img = document.createElement('img');
       img.src = files[i];
@@ -46,47 +51,43 @@
     timer = setTimeout(function() {
       next.click();
       playSlideshow();
-    }, 1500);
+    }, SLIDESHOW_DURATION);
   }
 
   createThumbnails();
 
-  thumbnails.children[currentNum].className = 'current';
+  thumbnails.children[currentNum].className = CLASS_CURRENT;
 
   prev.addEventListener('click', function(){
-    thumbnails.children[currentNum].className = '';
+    thumbnails.children[currentNum].className = CLASS_NONE;
     currentNum--;
     if (currentNum < 0) {
       currentNum = files.length -1;
     }
     target.src = files[currentNum];
-    thumbnails.children[currentNum].className = 'current';
+    thumbnails.children[currentNum].className = CLASS_CURRENT;
   });
 
   next.addEventListener('click', function(){
-    thumbnails.children[currentNum].className = '';
+    thumbnails.children[currentNum].className = CLASS_NONE;
     currentNum++;
     if (currentNum > files.length -1) {
       currentNum = 0;
     }
     target.src = files[currentNum];
-    thumbnails.children[currentNum].className = 'current';
+    thumbnails.children[currentNum].className = CLASS_CURRENT;
   });
 
   play.addEventListener('click', function() {
-    if (isRunning === true) {
-      return;
-    }
-    isRunning = true;
     playSlideshow();
-    this.className = 'hidden';
-    pause.className = '';
+    this.className = CLASS_HIDDEN;
+    pause.className = CLASS_NONE;
   });
 
   pause.addEventListener('click', function() {
       clearTimeout(timer);
-      this.className = 'hidden';
-      play.className = '';
+      this.className = CLASS_HIDDEN;
+      play.className = CLASS_NONE;
   });
 
 })();

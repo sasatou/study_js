@@ -12,7 +12,7 @@ body{
 }
 
 /* main */
-.main{position: relative;}
+main{position: relative;}
 
 #prev, #next{
   cursor: pointer;
