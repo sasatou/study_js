@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>スライドショー</title>
+</head>
+<body>
+  <div id="container">
+    <main>
+      <img id="target" src="img/food0.jpg" width="300" height="200">
+      <i id="prev" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+      <i id="next" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+    </main>
+
+    <nav>
+      <ul id="thumbnails">
+        <li class="current"><img src="img/food0.jpg" width="45" height="30"></li>
+        <li><img src="img/food1.jpg" width="45" height="30"></li>
+        <li><img src="img/food2.jpg" width="45" height="30"></li>
+        <li><img src="img/food3.jpg" width="45" height="30"></li>
+      </ul>
+
+      <div id="play">
+        <i class="fa fa-play" aria-hidden="true"></i> 再生
+      </div>
+
+      <div id="pause" class="hidden">
+        <i class="fa fa-pause" aria-hidden="true"></i> 停止
+      </div>
+    </nav>
+
+  </div>
+<script src="main.js"></script>
+</body>
+</html>

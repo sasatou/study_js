@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>javascript</title>
+</head>
+<body>
+
+  
+
+
+<script>
+  // 変数: データにつけるラベル
+  /*
+    データ型
+      - 文字列
+        - 表現方法
+          - "" か '' で囲む
+        - 特殊文字
+          - \n 改行
+          - \t タブ など
+          - + 連結
+        - 演算子
+      - 数値
+        - 10 整数値
+        - 2.5 実数値
+        - -2.5 マイナス値
+        - 演算子
+         - 四則演算
+           ->  + - * / %
+         - 代入を伴う演算子
+           ->  +=
+         - 単行演算子
+           -> ++ --
+      - 真偽値(true / false)
+      - オブジェクト
+        - 配列
+        - 関数
+        - 組み込みオブジェクト
+      - undefined 定義されていない
+      - null 何もない
+  */
+  /*
+      条件分岐
+      構文
+      if (条件){
+        真
+      } else {
+        偽
+      }
+  */
+  /*      
+      比較演算子
+      >   〜よりも大きい
+      <   〜よりも小さい
+      >=  〜以下
+      <=  〜以上
+      === 〜と等しい
+      !== 〜と等しくない
+  */
+  /*
+      論理演算子
+      && 〜と
+      || 〜かつ
+      !  違う
+
+      真偽値
+          文字列:   空文字以外だったら true
+          数値:    0かNaN以外だったら true
+          true / false
+          object: null以外だったら true
+          undefined, null -> false
+  */
+  // 両方共同じ意味
+  if (x) {
+    // 処理
+  }
+  if (x !== '') {
+    // 処理
+  }
+
+  /*
+      三項演算子
+      構文
+      var a, b, c;
+      if (条件){
+        a = b;
+      } else {
+        a = c;
+      }
+      a = (条件) ? b : c;
+  */
+    var max, x, y;
+    // ｘがｙより大きかったらxがmaxだし、そうじゃなかったらyのほうがmax
+    max = (x > y) ? x : y;
+  /*
+    条件分岐
+    switch文
+    ある変数が取りうる値が複数あって、
+    それに応じた処理を振り分けたい場合にすっきり書くことができる構文
+
+    構文
+    switch (expression) {
+      case expression:
+
+        break;
+      default:
+
+    }
+
+    switch(処理){
+      case:
+      処理;
+        break;
+      case:
+      処理;
+        break;
+      default:
+      処理;
+       break;
+    }
+  */
+  var signal = "red";
+  switch (signal) {
+    case "red":
+      console.log("stop!");
+      break;
+    case "green":
+    case "blue": // 複数書くこともできる
+      break;
+      console.log("go!");
+      break;
+    case "yellow":
+      console.log("slow down!");
+      break;
+    default:
+      console.log("wrong signal!");
+      break;
+  }
+
+  /*
+    ループ処理
+    - while
+    構文
+    while (true) {
+
+    }
+  */
+  var i = 0;
+  while (i < 10){
+    console.log(i);
+    i++;
+  }
+  /*
+    ループ処理
+    - do .. whill
+    構文
+    do {
+
+    } while (true);
+    条件に合致していなくても必ず一回処理を行う。
+  */
+
+  var i = 0;
+  do {
+    console.log(i);
+    i++;
+  } while(i < 10);
+
+  /*
+    ループ処理
+    - for文
+      - ループを抜け出す処理
+        - break ループ処理を抜けるための命令
+        - continue ループ処理を１回スキップする
+
+    構文
+    for (var i = 0; i < array.length; i++) {
+      array[i]
+    }
+  */
+  for(var i = 0; i < 10 i++){
+    console.log(i);
+  }
+  // ある条件下でループを抜けたい場合。
+  for(var i = 0; i < 10 i++){
+    if(i === 5){
+      break;
+    }
+    console.log(i);
+  }
+  // ある条件下でループをスキップしたい場合。
+  for(var i = 0; i < 10 i++){
+    if(i === 5){
+      continue;
+    }
+    console.log(i);
+  }
+  /*
+    関数: 複数の処理をまとめて名前をつけたもの
+
+    構文
+
+    function 関数名(引数) {
+      処理
+    }
+
+  */
+
+function  hello() {
+  console.log("hello");
+}
+hello();
+
+function  hello(name) {
+  console.log("hello" + name);
+}
+hello("Tom");
+hello("Bob");
+
+/*
+  関数から返り値を貰いたいとき。
+
+  return 返り値
+*/
+
+function  hello(name) {
+  return "hello" + name;
+}
+var greet = hello("Tom");
+console.log(greet);
+
+/*
+  ローカル変数
+  - 関数内で定義された変数で
+    関数内でしか有効でない
+
+*/
+
+function  hello(name) {
+  var msg = "hello" + name; // ローカル変数
+  return msg;
+}
+var greet = hello("Tom");
+console.log(greet);
+
+// 関数の別の書き方
+// 関数もデータ型なので変数に入れることが可能
+// 変数になるので最後にセミコロンをつけるのを忘れない。
+
+var hello = function(name) {// 無名関数, 匿名関数
+  var msg = "hello" + name; // ローカル変数
+  return msg;
+};
+var greet = hello("Tom");
+
+/*
+  即時関数
+  - 定義して即実行する
+
+  構文
+  (function() {
+
+  })();
+*/
+
+  (function(){
+    console.log('hello');
+  })();
+
+// 引数を取ることもできる
+
+  // (function hello(name){ 即時実行なので関数名も短縮できる
+  (function(name){
+    console.log('hello' + name);
+  })("Tom");
+
+  // 第三者のcodeを読み込ませながらcodeを書く場合
+  // 変数をローカル変数にすることで、相手に迷惑をかけない配慮をすることができる。
+
+  (function(){
+    var x = 10;
+        y = 20;
+      console.lo(x +y);
+  })();
+
+
+  /*
+    タイマー処理
+    - setInterval ある一定時間ごとにある処理を繰り返す
+    - setTimeout ある一定時間後にある処理を一回だけ行う
+  */
+  // 一秒ごとに繰り返す処理
+  var i = 0;
+  function show() {
+    console.log(i++);
+  }
+  setInterval(function(){
+    show();
+  }, 1000);
+
+  // 一秒後に一回だけ処理を行う
+  var i = 0;
+  function show() {
+    console.log(i++);
+  }
+  setTimeout(function(){
+    show();
+  }, 1000);
+
+// setInterval の方は前の処理が終わったかどうかというのを
+// 考えずに次の処理を始めてしまうので、
+// あまりにも処理が重い場合には、次々に新しい処理が実行されて、
+// ブラウザがクラッシュしてしまうという問題があります。
+// setTimeout の方はちゃんと前の処理が終わったかどうかを考慮するので、
+// 実は繰り返し処理には setTimeout の方がよく使われたりします。
+
+// どう書けばsetIntervalのような制御になるのかは以下の様に・
+
+var i = 0;
+function show() {
+  console.log(i++);
+  setTimeout(function(){
+    show();
+  }, 1000);
+}
+show(); // 最初の一回は呼び出さなければならない
+
+// ある条件下でタイマーを止める処理
+var i = 0;
+function show() {
+  console.log(i++);
+  var timeId = setTimeout(function(){
+    show();
+  }, 1000);
+  if (i > 3) {
+    crearTimeout(timeId);
+  }
+}
+show(); // 最初の一回は呼び出さなければならない
+
+/*
+  配列: グループ化されたデータ
+
+  構文
+  var 変数 = [data1, data2, data3];
+  console.log(変数[添字]) //添字は 0,1,2....
+*/
+
+// こういった書き方でもいいのですが
+var score_1 = 100;, score_2 = 200;
+
+var scores = [100, 300, 500, "sasaki"];
+console.log(scores[0]);
+scores[2] = 400; //書き換えたい場合
+
+// 配列の中に配列を組むことができる
+
+var matrix = [
+  [1, 2, 3],
+  [4, 5, 6]
+];
+console.log(matrix[0][2]); //これで3を取得している。
+console.log(matrix[1][1]); //これで5を取得している。
+
+
+/*
+  オブジェクト(グループ化されたデータ)
+  - 名前と値ペアが配列化
+  構文
+  var user = {
+    プロパティ: "プロパティネーム",
+    score: 999
+  }
+*/
+
+var user = {
+  email: "sasaki@gmail.com",
+  score: 80
+};
+// データの取得方法
+console.log(user["email"]);
+console.log(user.email]);
+
+// データの置き換え
+user.score = 100;
+
+
+/*
+  メソッド
+  オブジェクトにはプロパティの値に関数を持つことが可能
+
+*/
+
+var user = {
+  email: "sasaki@gmail.com",
+  score: 80
+  greet: function(name) { // メソッド
+    console.log("hello " + name);
+  }
+};
+user.greet("Tom");
+
+// this について
+var user = {
+  email: "sasaki@gmail.com",
+  score: 80
+  greet: function(name) { // メソッド
+    //この場合のthisはuserを参照している
+    console.log("hello " + name + "from" + this.email);
+  }
+};
+user.greet("Tom");
+
+
+/*
+  組み込みオブジェクト
+
+  予めjavascriptがよういしてくれているオブジェクトが
+  いくつかある
+
+  - string 文字列
+  - array  配列
+  - Math   数学
+  - Date   日付
+
+*/
+// string 文字列
+var s =  new String("sasaki");
+// var s = "sasaki"; // 文字列リテラル
+console.log(s.length); // 文字数の取得
+console.log(s.replace("s", "S")); // 文字の置き換え
+console.log(s.substr(1, 3)) // 文字の抜き出し これだとasaを抜き出してくる
+
+// array  配列
+
+var a = new Array(100, 300, 500);
+// var a = [100, 300, 500]; リテラル
+console.log(a.length); // 配列の個数 これだと３
+// unshift 先頭に追加 -> array <- push 末尾に追加
+// shift 先頭から除去 <- array -> pop 末尾から除去
+a.push(800);
+console.log(a); // [100, 300, 500, 800]となっている
+// 途中から削除
+a.splice(1, 2); // [100, 800]となっているはず
+// 途中から追加もできる
+a.splice(1, 2, 900, 1000); // [100, 900, 1000, 800]となっているはず
+
+
+// Math   数学
+console.log(Math.PI); // 円周率を表示
+console.log(Math.ceil(5.3)); // 6 実数を切り上げ
+console.log(Math.floor(5.3)); // 5 実数を切り捨て
+console.log(Math.round(5.3)); // 5 四捨五入
+console.log(Math.random()); // 呼び出すたびに０〜１未満の実数を生成
+
+
+// Date 日付
+var d = new Date(); // 現在時刻を取得
+console.log(d.getFullYear()); // 年を取得
+console.log(d.getMonth()); // 月を取得
+console.log(d.getTime()); // 経過ミリ秒を取得 1970/1/1からの経過ミリ秒を取る
+
+
+ // javascriptは日付の部分を0から取るのでこれだと1なので２月
+var d = new Date(2014, 1, 11, 10, 20, 30);
+
+
+/*
+  DOM - document object model -
+*/
+  console.log(window);
+  console.log(window.outerHeight); //ブラウザの高さを取得
+  window.location.href = 'http://test.com'; // 別のページ遷移させる
+
+  // window.document <- 今開いているページ
+
+
+
+  // domを操作してみる
+  //
+  // <h1>見出し</h1>
+  // <p id="msg">こんにちは！</p>
+
+  var e = document.getElementById('msg');
+  e.textContent = 'hello' // <p id="msg">hello</p>に置き換わる
+  e.style.color = 'red';  // スタイルを操作
+  e.className = 'myStyle' // classの付与
+
+  /*
+    bodyの中に
+     -> p -> text
+     を生成
+  */
+
+  var greet = document.createElement('p'), // pを作って変数に格納
+      text = document.createTextNode('hello world'); // textを作って変数に格納
+  document.body.appendChild(greet).appendChild(text);
+  // bodyの子要素にpを生成, pの子要素にtextを生成する
+
+  /*
+    イベントを設定する
+
+  */
+  // <button id="add">Click!</button>
+  document.getElementById('add').addEventListener('click', function() {
+    var greet = document.createElement('p'),
+        text = document.createTextNode('hello world');
+    document.body.appendChild(greet).appendChild(text);
+  });
+
+</script>
+<script src="main.js"></script>
+</body>
+</html>
